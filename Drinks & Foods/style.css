@@ -1,0 +1,123 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+.categorydrinkfood {
+    margin-top: 30px;
+}
+
+.title-drinkfood {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;    
+    color: #656565;
+    display: inline;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+
+
+.category_drinkfood button {
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #E8E8E8;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000000;
+    margin-right: 3px;
+    
+}
+.category_drinkfood .selected-item {
+    color: white;
+    background-color: #28A3B4;
+    
+}
+
+.category_drinkfood {
+    margin-top: 10px;
+}
+
+.drinkselection {
+    margin-left: 30px;
+    margin-top: 20px;
+    background-color: #E8E8E8;
+    width: 880px;
+    height: 816px;  
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.item {
+    width: 215px;
+    height: 230px;
+}
+
+.item img{
+    width: 100%;
+    height: 180px;
+}
+
+.item .nameandprice {
+    font-style: normal;
+    font-weight:700;
+    font-size: 18px;
+    color: #E8658C;
+    margin-top: -15px;
+    margin-bottom: 0px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.item .drinkname {
+    display: inline;
+}
+
+.item .price {
+    display: inline;
+
+}
+
+.item .image-container {
+    position: relative;
+
+}
+
+
+.item:hover .effect {
+    
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item:hover .effect button {
+    width: 150px;
+    height: 45.77px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 9px;
+    border-color: white;
+    border-style: solid;
+
+}
