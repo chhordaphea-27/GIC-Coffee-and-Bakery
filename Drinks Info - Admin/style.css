@@ -1,0 +1,337 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: stretch;
+}
+
+body div {
+    display: inline-block;
+}
+
+.left-side {
+    width: 60%; 
+    height: auto;
+}
+
+.right-side {
+    width: calc(39%); 
+    height: auto;    
+    margin-top: 20px;
+
+}
+
+.left-header {
+    width: 100%;
+    display: flex;
+
+    justify-content: left center;
+    align-items: center;
+    gap: 40px;
+
+
+}
+
+.title {
+    display: inline-block;
+    color: #E8658C;
+    width: 100px;
+    font-size: 36px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+.searchbar {
+    display: inline-block;
+
+    background-color: #E8E8E8;
+    color: gray;
+    width: 700px;
+    height: 40px;
+
+    font-style: normal;
+    font-weight:700;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+
+    border-style: none;
+    border-radius: 40px;
+
+    display: flex;
+
+    margin-left: 20px;
+    
+
+    
+}
+
+
+.searchbar input[type="search"] {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    width: 100%;
+  }
+  
+  .searchbar input[type="search"]::placeholder {
+    color: #bbb;
+  }
+  
+  .searchbar button[type="submit"] {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .searchbar button[type="submit"]:hover {
+    opacity: 1;
+  }
+  
+  .searchbar button[type="submit"]:focus,
+  .searchbar input[type="search"]:focus {
+    box-shadow: 0 0 3px 0 #1183d6;
+    border-color: #1183d6;
+    outline: none;
+  }
+
+
+.underline {
+    background-color: #f5b5c9;
+    width: 700px;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.drinkselection {
+    margin-top: 0px;
+    background-color: #E8E8E8;
+    width: 95%;
+    height: 816px;  
+    padding: 10px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    overflow-y: auto;
+
+}
+
+.item {
+    width: 160px;
+    height: 190px;
+    margin-bottom: 15px;
+
+    
+}
+
+.item img{
+    width: 100%;
+    height: 150px;
+
+}
+
+.item .image-container {
+    position: relative;
+}
+
+.item .effect {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 0px;
+    background: rgba(222, 219, 219, 0.5);
+    backdrop-filter: blur(1px);
+    /* background-color: transparent; */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.item .code {
+    font-style: normal;
+    font-weight:700;
+    font-size: 18px;
+    color: black;  
+}
+
+.item .nameandprice {
+    font-style: normal;
+    font-weight:700;
+    font-size: 18px;
+    color: #E8658C;
+    margin-top: -15px;
+    /* margin-bottom: 10px; */
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.item .drinkname {
+    display: inline;
+}
+
+.item .price {
+    display: inline;
+
+}
+
+.item .image-container .actionButton {
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    flex-grow: 2;
+
+}
+
+.item .image-container .actionButton .btn {
+    height: 100%;
+    border: none;
+}
+
+.item:hover .image-container .actionButton {
+    display: flex;
+}
+
+.item:hover .image-container .actionButton .btn {
+    display: inline-block;
+}
+
+.item .image-container .actionButton .btn:hover {
+    background-color: #c8c8c8;
+    color: white;
+}
+
+.add-new-container {
+    width: 160px;
+    height: 175px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: dashed;
+    border-color: #E8658C;
+    border-width: 1.5px;
+    margin-bottom: 15px;
+
+    display: block;      
+
+}
+
+.add-new-container .addsign {
+    font-size: 30px;
+    color: gray;
+}
+
+.add-new-container .addtext {
+    font-style:normal;
+    font-weight:500;
+    font-size: 16px;
+    color: #E8658C;
+    margin-top: -10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.drinkinfo-header {
+    background-color: #E8658C;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.drinkinfo-header .text {
+    color: white;
+    text-align: center;
+    font-style: normal;
+    font-weight:600;
+    font-size: 24px;
+
+}
+
+.right-side .imageProduct-container {
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.right-side .imageProduct-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.right-side .info-right {
+    
+    display: inline-block;
+    /* width: 54%; */
+    height: auto;
+
+    margin-top: 30px;
+    margin-left: 15px;
+
+    font-style:normal;
+    font-weight:500;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #060505;
+}
+
+
+
+.right-side .info-right .details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.right-side .info-right  .details .bold {
+    font-weight:bold;
+}
+
+.right-side .info-bottom {
+    width: 100%;
+}
+
+.right-side .info-bottom .details  {
+    color: #060505;
+    margin-top: 30px;
+    margin-left: 15px;
+    font-style:normal;
+    font-weight:500;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#discription {
+    text-align: justify;
+}
+
+
+.right-side .info-bottom .details .boldandcolor {
+    color: #28A3B4;
+    font-weight: bold;
+    font-size: 24px;
+}
