@@ -22,6 +22,7 @@
     height: 80%;
     /* background-color: white; */
     margin:15px auto;
+    margin-left: 100px;
     margin-top: 100px;
 }
 .body1 h1{
@@ -152,10 +153,8 @@
     height: 40px;
     /* background-color: burlywood; */
     margin: auto;
-    border: 1px solid black;
+    border: 0px;
     border-radius: 10px;
-}
-.method:hover{
     background-color: #E8658C;
 }
 /* ///////////////////////////////// */
@@ -172,6 +171,9 @@
     height: 40px;
     margin-left: 20px;
     font-size: 25px;
+    border: 1px solid black;
+}
+.amount input:hover{
     border: 1px solid #E8658C;
 }
 /* ///////////////////////////// */
