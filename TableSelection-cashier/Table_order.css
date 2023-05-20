@@ -2,7 +2,8 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family:  Quicksand;
+    font-family:  'Quicksand';
+
 }
 
 .main{
@@ -42,16 +43,21 @@
 .cercle{
     width: 80px;
     height: 80px;
-    background-color: gray;
+    font-weight: 800px;
+    background-color: #e8e8e8;
     border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: #737272 ;
 }
 .cercle:hover{
     background-color: #E8658C;
+    color: white;
 }
 .cercle1{
     width: 80px;
     height: 80px;
-    background-color: gray;
+    background-color: rgb(220, 216, 216);
     border-radius: 50%;
 }
 .cercle  p{
@@ -66,7 +72,7 @@
 }
 
 .right_main{
-    width: 40%;
+    width: 35%;
     height: 100%;
     /* background-color: cadetblue; */
 }
@@ -75,8 +81,8 @@
     height: 85%;
     background-color: white;
     margin:90px auto;
-    border-radius: 5px;
-    box-shadow: 0px 0px 4px rgb(162, 160, 160);
+    border-radius: 14.5666px;
+    box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
 }
 .footer{
     display: flex;
@@ -92,6 +98,10 @@
 }
 .tex h3{
     padding: 5px;
+    padding-left: 50px;
+}
+.tex h3 span{
+    padding-left: 20px;
 }
 .footer.botton{
     width: 30%;
@@ -99,7 +109,7 @@
     /* background-color: cyan; */
 }
 .footer button{
-    margin-left: 40px;
+    margin-left: 30px;
     margin-top: 20px;
     padding: 10px;
     border-radius: 7px;
@@ -133,5 +143,5 @@
     height: 100px;
     /* background-color: cyan; */
     margin-top: 200px;
-    margin-left: 245px;
+    margin-left: 215px;
 }
