@@ -84,14 +84,11 @@ hr{
     width: 80px;
     height: 80px;
     font-weight: 800px;
-    background-color: #e8e8e8;
+    background-color: #28B44F;
     border-radius: 50%;
     border-style: solid;
     border-width: 0.1px;
     border-color: #737272 ;
-}
-.plus:hover{
-    background-color: #28B44F;
     color: white;
 }
 .delete{
@@ -103,7 +100,7 @@ hr{
     width: 80px;
     height: 80px;
     font-weight: 800px;
-    background-color: #e8e8e8;
+    background: rgba(199, 40, 60, 0.1);
     border-radius: 50%;
     border-style: solid;
     border-width: 0.1px;
@@ -115,4 +112,5 @@ hr{
     background-color: none;
     appearance: none;
     color: white;
+
 }
