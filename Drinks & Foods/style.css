@@ -1,6 +1,9 @@
 body {
     font-family: 'Quicksand', sans-serif;
 }
+.main{
+    display: flex;
+}
 .categorydrinkfood {
     margin-top: 30px;
 }
@@ -120,4 +123,90 @@ body {
     border-color: white;
     border-style: solid;
 
+}
+
+
+.rightside_order{
+    width: 20px;
+    height: 20px;
+    background-color: #28A3B4;
+}
+
+
+
+
+.right_main{
+    width: 33%;
+    height: 750px;
+    /* background-color: cadetblue; */
+    margin-left: 40px;
+}
+.right_main .body2{
+    width: 100%;
+    height: 85%;
+    background-color: white;
+    margin:30px auto;
+    border-radius: 14.5666px;
+    box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
+}
+.footer{
+    display: flex;
+    margin-top: 70px;
+    width: 100%;
+    height: 80px;
+    /* background-color: cornflowerblue; */
+}
+.footer .tex{
+    width: 70%;
+    height: 100%;
+    /* background-color: darkgreen; */
+}
+.tex h3{
+    padding: 5px;
+    padding-left: 50px;
+}
+.tex h3 span{
+    padding-left: 20px;
+}
+.footer.botton{
+    width: 30%;
+    height: 100%;
+    /* background-color: cyan; */
+}
+.footer button{
+    margin-left: 30px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 5px #0c0808;
+    background-color: #28B44F;
+}
+.header{
+    width: 95%;
+    margin: auto;
+    height: 50px;
+    padding-top: 10px;
+    background-color: cornflowerblue;
+}
+.order{
+    display: flex;
+    
+}
+.guess{
+    width: 50%;
+    height: 40px;
+    padding-left: 10px;
+    /* background-color: cornflowerblue; */
+}
+.table{
+    width: 50%;
+    height: 40px;
+    /* background-color: darkcyan; */
+}
+.moment{
+    width: 20%;
+    height: 100px;
+    /* background-color: cyan; */
+    margin-top: 200px;
+    margin-left: 215px;
 }
