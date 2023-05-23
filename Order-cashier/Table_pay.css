@@ -105,6 +105,11 @@ iframe {
     margin-left: 10px;
     /* background-color: #33ed68; */
 }
+.price_of_pro{
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .size{
     width: 15%;
     height: 80%;
@@ -112,12 +117,20 @@ iframe {
     margin-top: 5px;
     /* background-color: rgb(162, 160, 160); */
 }
+.num_of_size{
+    font-size: 25px;
+    font-weight: bold;
+}
 .quantity{
     width: 15%;
     height: 80%;
     margin-top: 5px;
     /* background-color: #EC5A5A; */
     text-align: center;
+}
+.num_of_qua{
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .delete{
