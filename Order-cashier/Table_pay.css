@@ -1,3 +1,10 @@
+iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -26,7 +33,7 @@
     margin-top: 100px;
 }
 .body1 h1{
-    color: hotpink;
+    color: #E8658C;
 }
 .order{
     width: 100%;
@@ -173,18 +180,20 @@
 .sub_amount h3{
     text-align: center;
 }
-.amount input{
+.amount input {
     text-align: center;
     width: 90%;
     border-radius: 40px;
     height: 40px;
     margin-left: 20px;
     font-size: 25px;
-    border: 1px solid black;
+
+    border: 0.5px solid #848484;
 }
-.amount input:hover{
+
+/* .amount input:hover, .amount input:focus {
     border: 1px solid #E8658C;
-}
+} */
 /* ///////////////////////////// */
 .footer{
     margin-top: 130px;
