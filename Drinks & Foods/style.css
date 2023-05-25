@@ -1,0 +1,212 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+.main{
+    display: flex;
+}
+.categorydrinkfood {
+    margin-top: 30px;
+}
+
+.title-drinkfood {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;    
+    color: #656565;
+    display: inline;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+
+
+.category_drinkfood button {
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #E8E8E8;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000000;
+    margin-right: 3px;
+    
+}
+.category_drinkfood .selected-item {
+    color: white;
+    background-color: #28A3B4;
+    
+}
+
+.category_drinkfood {
+    margin-top: 10px;
+}
+
+.drinkselection {
+    margin-left: 30px;
+    margin-top: 20px;
+    background-color: #E8E8E8;
+    width: 880px;
+    height: 816px;  
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.item {
+    width: 215px;
+    height: 230px;
+}
+
+.item img{
+    width: 100%;
+    height: 180px;
+}
+
+.item .nameandprice {
+    font-style: normal;
+    font-weight:700;
+    font-size: 18px;
+    color: #E8658C;
+    margin-top: -15px;
+    margin-bottom: 0px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.item .drinkname {
+    display: inline;
+}
+
+.item .price {
+    display: inline;
+
+}
+
+.item .image-container {
+    position: relative;
+
+}
+
+
+.item:hover .effect {
+    
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item:hover .effect button {
+    width: 150px;
+    height: 45.77px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 9px;
+    border-color: white;
+    border-style: solid;
+
+}
+
+
+.rightside_order{
+    width: 20px;
+    height: 20px;
+    background-color: #28A3B4;
+}
+
+
+
+
+.right_main{
+    width: 33%;
+    height: 750px;
+    /* background-color: cadetblue; */
+    margin-left: 40px;
+}
+.right_main .body2{
+    width: 100%;
+    height: 85%;
+    background-color: white;
+    margin:30px auto;
+    border-radius: 14.5666px;
+    box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
+}
+.footer{
+    display: flex;
+    margin-top: 70px;
+    width: 100%;
+    height: 80px;
+    /* background-color: cornflowerblue; */
+}
+.footer .tex{
+    width: 70%;
+    height: 100%;
+    /* background-color: darkgreen; */
+}
+.tex h3{
+    padding: 5px;
+    padding-left: 50px;
+}
+.tex h3 span{
+    padding-left: 20px;
+}
+.footer.botton{
+    width: 30%;
+    height: 100%;
+    /* background-color: cyan; */
+}
+.footer button{
+    margin-left: 30px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 5px #0c0808;
+    background-color: #28B44F;
+}
+.header{
+    width: 95%;
+    margin: auto;
+    height: 50px;
+    padding-top: 10px;
+    background-color: cornflowerblue;
+}
+.order{
+    display: flex;
+    
+}
+.guess{
+    width: 50%;
+    height: 40px;
+    padding-left: 10px;
+    /* background-color: cornflowerblue; */
+}
+.table{
+    width: 50%;
+    height: 40px;
+    /* background-color: darkcyan; */
+}
+.moment{
+    width: 20%;
+    height: 100px;
+    /* background-color: cyan; */
+    margin-top: 200px;
+    margin-left: 215px;
+}
