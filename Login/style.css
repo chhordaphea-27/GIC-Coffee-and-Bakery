@@ -1,7 +1,10 @@
 body {
   display: grid;
   place-content: center;
-  height: 100vh;
+  height: 10vh;
+}
+.h3{
+  height: 12;
 }
 .flex-2div {
   display: flex;
@@ -26,8 +29,8 @@ body {
 }
 .img-content {
   position: absolute;
-width: 1500px;
-height: 800px;
+width: 1600px;
+height: 900px;
 left: 0px;
 top: -27px;
 
@@ -38,60 +41,33 @@ background: url(cofffee.png);
   outline: none;
   border-radius: 20px;
   margin-top: 5px;
-  width: 100%;
+  width: 90%;
   height: 20px;
   margin-bottom: 5px;
   border: 2px solid lightgray;
   padding: 10px 10px;
   cursor: pointer;
-  background-color: rgb(245, 243, 243);
-}
-.input-field-en:focus {
-  outline: none;
-  width: 100%;
-  border-radius: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 10px 10px;
-  border: 2px solid #e546b0;
-  
-}
+  background-color: rgb(245, 243, 243);  
+ }
 .lebel-text {
-  font-family: Verdana, Geneva, Tahoma, sans-serif\;;
-  opacity: 50%;
-  
+  font-family: sans-serif;
 }
 .flex-btn {
   display: flex;
-  width: 100%;
+  width: 95%;
   justify-content: end;
-  padding-top: 10px;
-  padding-left: 20px;
-  
+  height: 90px;
+  margin-top: -0.000000000000001%;
+  display: flex;
 }
-.btn-btn-cus {
+.submit {
   outline: none;
   border: none;
   background-color: rgb(241, 108, 130);
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   padding: 5px 20px;
   border-radius: 20px;
-}
-.btn-btn-cus:active {
-  cursor: pointer;
-  transition: ease;
-  transition-duration: 300ms;
-  background-color: #a33043;
-}
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: #080710;
 }
 .background{
     width: 430px;
@@ -107,23 +83,12 @@ body{
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
-    background: linear-gradient(
-        #e5cfdf,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
 .shape:last-child{
     background: linear-gradient(
         to right,
         #260321,
         #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
+    );}
 
 form{
     height: 550px;
@@ -141,8 +106,8 @@ form{
   
 }
 form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    font-family: sans-serif;
+    color: #1c1818;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -159,7 +124,6 @@ label{
     display: block;
     margin-top: 30px;
     font-size: 10px;
-    font-weight: 500;
     color: #10070e;
 }
 input{
@@ -168,49 +132,16 @@ input{
     width: 100%;
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
     font-size: 14px;
-    font-weight: 300;
-    
-}
-::placeholder{
-    color: #bbadad;
+    font-weight: 300px; 
 }
 button{
     margin-top: 50px;
     width: 100%;
     background-color: pink;
     color: pink;
-    padding: 15px 0;
+    padding: 15px 6px;
     font-size: 18px;
-    font-weight: 600;
     border-radius: 5px;
-    cursor: pointer;
 }
-.social{
-  margin-top: 30px;
-  display: flex;
-}
-.social div{
-  background: pink;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255, 255, 255, 0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(145, 41, 108, 0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
-}
-.logo {
-  width: 0.1px;
-  height: 1px;
-}
+
