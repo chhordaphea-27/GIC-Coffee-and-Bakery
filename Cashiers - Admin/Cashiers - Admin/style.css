@@ -22,7 +22,7 @@ body div {
 }
 
 .mainContent-Container {
-    /* position: fixed; */
+    position: fixed;
     font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: stretch;
@@ -145,7 +145,7 @@ body div {
     margin-left: 10px;
     /* background-color: #E8E8E8; */
     width: 90%;
-    height: 710px;  
+    height: 88vh;  
     padding: 10px;
     border-radius: 15px;
 
