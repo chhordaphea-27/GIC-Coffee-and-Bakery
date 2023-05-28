@@ -10,7 +10,7 @@ public class LoginController {
 
 	@GetMapping(path = "/")
 	public ModelAndView test() {
-		return new ModelAndView("Login/index");
+		return new ModelAndView("Login/loginPage");
 	}
 
 }
