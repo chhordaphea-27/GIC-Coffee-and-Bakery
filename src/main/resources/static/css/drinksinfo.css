@@ -8,8 +8,23 @@ body div {
     display: inline-block;
 }
 
+.mainContent-Container {
+    position: fixed;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: space-between;
+
+
+
+    right: 20px;
+    top: 0px;
+    bottom: 0px;
+    left: 235px;
+
+}
+
 .left-side {
-    width: 60%; 
+    width: 59%; 
     height: auto;
 }
 
@@ -118,7 +133,7 @@ body div {
 .drinkselection {
     margin-top: 0px;
     background-color: #E8E8E8;
-    width: 95%;
+    width: 98%;
     height: 816px;  
     padding: 10px;
     border-radius: 15px;
