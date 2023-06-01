@@ -1,5 +1,4 @@
 package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,30 +18,23 @@ public abstract class Management<T> {
         return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
     }
 
-    public void add(T model, String query) {
+    public void delete(int id, String query) {
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            // Set the parameters for the prepared statement using model's data
+            stmt.setInt(1, id);
 
-            stmt.executeUpdate();
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println("Record deleted successfully");
+            } else {
+                System.out.println("No record found with the given ID");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    public void update(T model, String query) {
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            // Set the parameters for the prepared statement using model's data
-
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
     public List<T> getAll(String query) {
         List<T> modelList = new ArrayList<>();
 

@@ -1,12 +1,13 @@
-package com.softwareegineering.GICCafe2023.DatabaseManagement;
+package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
-import com.softwareegineering.GICCafe2023.Model.Size;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Size;
 
 
 public class SizeManagement extends Management<Size> {

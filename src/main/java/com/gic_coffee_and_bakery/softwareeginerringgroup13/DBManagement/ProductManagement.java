@@ -1,9 +1,13 @@
-package com.softwareegineering.GICCafe2023.DatabaseManagement;
+package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
-import com.softwareegineering.GICCafe2023.Model.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Category;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Product;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Size;
 
 public class ProductManagement extends Management<Product> {
 

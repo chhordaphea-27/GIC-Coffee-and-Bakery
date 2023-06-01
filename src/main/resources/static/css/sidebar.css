@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.sidebar-container a {
+    text-decoration: none;
+}
+
 .sidebar-container hr {
     border-style: dashed;
     border-width: 1px;

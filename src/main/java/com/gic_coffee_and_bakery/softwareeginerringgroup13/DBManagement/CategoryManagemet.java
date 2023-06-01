@@ -1,6 +1,4 @@
-package com.softwareegineering.GICCafe2023.DatabaseManagement;
-
-import com.softwareegineering.GICCafe2023.Model.*;
+package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.Management;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Category;
 
 public class CategoryManagemet extends Management<Category> {
     @Override
