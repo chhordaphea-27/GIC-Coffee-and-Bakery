@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TableManagementController {
-    @GetMapping("/tablemanagement")	
+public class HistoryController {
+    @GetMapping("/history")	
 	public ModelAndView test(Model model) {
 
 
-		return new ModelAndView("table_management");
+		return new ModelAndView("history");
 	}
 }
