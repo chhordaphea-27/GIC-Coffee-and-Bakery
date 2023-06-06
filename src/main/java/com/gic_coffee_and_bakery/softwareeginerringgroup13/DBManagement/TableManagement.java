@@ -21,20 +21,20 @@ public class TableManagement extends Management<Table> {
     @Override
     protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Table table) throws SQLException {
         stmt.setInt(1, table.getTableNumber());
-        stmt.setString(3, table.getTableStatus());
+        stmt.setString(2, table.getTableStatus());
 
         if (!isAddOperation) {
-            stmt.setInt(4, table.getId());
+            stmt.setInt(3, table.getId());
         }
     }
 
     public int addTable(Table table) {
-        String query = "INSERT INTO `table` (tableNumber, table_type, table_statue) VALUES (?, ?, ?)";
+        String query = "INSERT INTO `table` (tableNumber, table_statue) VALUES (?, ?)";
         return add(table, query);
     }
 
     public void updateTable(Table table) {
-        String query = "UPDATE `table` SET tableNumber = ?, table_type = ?, table_statue = ? WHERE table_id = ?";
+        String query = "UPDATE `table` SET tableNumber = ?, table_statue = ? WHERE table_id = ?";
         update(table, query);
     }
 

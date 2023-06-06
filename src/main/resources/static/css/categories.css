@@ -30,7 +30,7 @@
 
 
 .left-side {
-    width: 60%; 
+    width: 55%; 
     height: auto;
 
 }
@@ -40,7 +40,7 @@
     /* width: 30%; */
     height: auto;    
     margin-top: 20px;
-
+    margin-left: 15px;
     
 }
 

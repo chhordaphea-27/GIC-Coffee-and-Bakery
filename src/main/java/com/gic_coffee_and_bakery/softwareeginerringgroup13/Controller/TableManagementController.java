@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.TableManagement;
@@ -20,9 +21,23 @@ public class TableManagementController {
 		return new ModelAndView("table_management");
 	}
 
+	@PostMapping("/tablemanagement")
+	public ModelAndView login(@RequestParam("username") String username, 
+								@RequestParam("password") String password){
+								
+								}
+
+
+
 	private List<Table> displayTable(){
 		TableManagement tableManagement = new TableManagement();
 		return tableManagement.getAllTables();
+	}
+	 
+	private void createNewTable(int tableNumber) {
+		Table table = new Table(0, tableNumber, "Available");
+		TableManagement tableManagement = new TableManagement();
+		tableManagement.addTable(table);
 	}
 
 }

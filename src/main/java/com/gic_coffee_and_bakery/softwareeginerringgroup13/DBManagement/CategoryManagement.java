@@ -55,10 +55,24 @@ public class CategoryManagement extends Management<Category> {
         return query(searchKeyword, SEARCH_CATEGORY_QUERY, searchKeyword, searchKeyword);
     }
 
-	@Override
-	protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Category model)
-			throws SQLException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setStatementParams'");
-	}
+    public List<Category> getAllFoodCategories() {
+        String query = "SELECT * FROM category WHERE type = ?";
+        return query("Keyword", query, "Food");
+    }
+
+    public List<Category> getAllDrinkCategories() {
+        String query = "SELECT * FROM category WHERE type = ?";
+        return query("Keyword", query, "Drink");
+    }
+
+    @Override
+    protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Category category) throws SQLException {
+        stmt.setString(1, category.getCategoryName());
+        stmt.setString(2, category.getType());
+        stmt.setString(3, category.getImage_url());
+
+        if (!isAddOperation) {
+            stmt.setInt(4, category.getId());
+        }
+    }
 }

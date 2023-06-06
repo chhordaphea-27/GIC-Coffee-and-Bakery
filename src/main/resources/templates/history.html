@@ -89,55 +89,14 @@
                 <div class="price">Price($)</div>
                 <div class="date">Date</div>
             </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
+
+            <div class="data" th:each="order: ${allOrder}">
+                <div class="order_data" th:text="${order.getId()}" ><p>DH001</p></div>
+                <div class="table_data" th:text="${order.getTable().getTableNumber()}" ><p>08</p></div>
+                <div class="price_data" th:text="${order.getTotalPrice() + '$'}" >2.3$</div>
+                <div class="date_data" th:text="${order.getDateCreated()}" >03/09/2023 08:30:00</div>
             </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
-            <div class="data">
-                <div class="number"><p>1</p></div>
-                <div class="order_data"><p>DH001</p></div>
-                <div class="table_data"><p>08</p></div>
-                <div class="price_data">2.3$</div>
-                <div class="date_data">03/09/2023 08:30:00</div>
-            </div>
+           
         </div>
     </div>
 </body>

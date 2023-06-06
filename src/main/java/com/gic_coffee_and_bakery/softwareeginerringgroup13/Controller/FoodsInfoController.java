@@ -1,5 +1,6 @@
 package com.gic_coffee_and_bakery.softwareeginerringgroup13.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class FoodsInfoController {
 	public ModelAndView test(Model model) {
 		Product emptyFood = new Product(0, null, null, null, null, null);
 
-		model.addAttribute("allFood", getAllProduct());
+		model.addAttribute("allFood", getFoodTypeFromProduct());
 	    model.addAttribute("detailFood", emptyFood);
 
 		return new ModelAndView("foodsinfo");
@@ -30,7 +31,7 @@ public class FoodsInfoController {
 											Model model) {
 
 		
-		model.addAttribute("allFood", getAllProduct());
+		model.addAttribute("allFood", getFoodTypeFromProduct());
 	    model.addAttribute("detailFood", getProductById(productId));
 	  return new ModelAndView("/foodsinfo");
 	}
@@ -46,5 +47,22 @@ public class FoodsInfoController {
 		return productSizeManagement.getProductSizeById(product_id);
 	}
 
+	private ArrayList<ProductSize> getFoodTypeFromProduct() {
+		ProductManagement productManagement = new ProductManagement();
+		List<Product> foods = productManagement.getAllFood();
+
+		ArrayList<ProductSize> allProductSizes = new ArrayList<>();
+		
+		ProductSizeManagement productSizeManagement = new ProductSizeManagement();
+		for (Product food : foods) {
+			List<ProductSize> ps = productSizeManagement.getProductSizesByProductId(food.getId());
+			for (ProductSize productSize : ps) {
+				allProductSizes.add(productSize);
+			}
+		}
+
+
+		return allProductSizes;
+	} 
 
 }

@@ -66,4 +66,14 @@ public class ProductSizeManagement extends Management<ProductSize> {
         String query = "SELECT * FROM product_size WHERE product_id = ?";
         return query("Keyword", query, productId);
     }
+
+    public List<ProductSize> getProductSizesByCategory(int category_id) {
+        String query = "SELECT ps.* FROM product_size ps " +
+                       "JOIN product p ON ps.product_id = p.product_id " +
+                       "JOIN category c ON p.category_id = c.category_id " +
+                       "WHERE c.category_id = ?";
+        return query("Keyword", query, category_id);
+    }
+    
+
 }

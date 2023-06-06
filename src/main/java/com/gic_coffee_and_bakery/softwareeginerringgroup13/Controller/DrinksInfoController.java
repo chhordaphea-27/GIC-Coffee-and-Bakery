@@ -18,8 +18,8 @@ public class DrinksInfoController {
 
 		ProductSize emptyDrink = new ProductSize(0, new Size(), new Product());
 
-	    model.addAttribute("detailDrink", emptyDrink);
 		model.addAttribute("alldrink", getallDrinks());
+	    model.addAttribute("detailDrink", emptyDrink);
 
 		return new ModelAndView("drinksinfo");
 	}
