@@ -36,7 +36,7 @@
 }
 
 .right-side {
-    width: 38%; 
+    width: 100%; 
     /* width: 30%; */
     height: auto;    
     margin-top: 20px;
@@ -395,7 +395,22 @@
     color: white;
 }
 
+#sidebar-activate{
+    width: 190px;
+    margin-left: auto;
+    border-radius: 26px 0 0 26px;
 
+    background-color: white;
+    color: #343330;
+
+    padding-left: 30px;
+
+}
+
+#sidebar-activate svg path {
+    fill: #343330;
+
+}
 
 
 /* .right-side .imageProduct-container {

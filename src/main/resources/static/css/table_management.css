@@ -78,10 +78,34 @@ hr{
     border-width: 0.1px;
     border-color: #737272 ;
 }
-.item:hover{
-    background-color: hotpink;
-    color: white;
+.item:hover {
+    padding: 27px;
+    margin: 10px;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    font-weight: 800px;
+    background: rgba(199, 40, 60, 0.1);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: hotpink ;
+    color: hotpink ;
+
+ 
 }
+.item:hover svg {
+    display: block;
+}
+.item:hover p {
+    display: none;
+}
+.item svg {
+    display: none;
+}
+
 .plus{
     padding: 27px;
     margin: 10px;
@@ -119,5 +143,22 @@ hr{
     background-color: none;
     appearance: none;
     color: white;
+
+}
+
+#sidebar-activate{
+    width: 190px;
+    margin-left: auto;
+    border-radius: 26px 0 0 26px;
+
+    background-color: white;
+    color: #343330;
+
+    padding-left: 30px;
+
+}
+
+#sidebar-activate svg path {
+    fill: #343330;
 
 }

@@ -1,63 +1,42 @@
 package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.*;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Size;
 
 
 public class SizeManagement extends Management<Size> {
 
     @Override
     protected Size mapRowToModel(ResultSet rs) throws SQLException {
-        Size size = new Size();
-        size.setId(rs.getInt("size_id"));
-        size.setSizeName(rs.getString("size_name"));
-        size.setPrice(rs.getDouble("price"));
-        return size;
+        int sizeId = rs.getInt("size_id");
+        String sizeName = rs.getString("size_name");
+        double price = rs.getDouble("price");
+
+        return new Size(sizeId, sizeName, price);
     }
 
-    public void addSize(Size size) {
-        String query = "INSERT INTO size (size_name, price) VALUES (?, ?)";
+    @Override
+    protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Size size) throws SQLException {
+        stmt.setString(1, size.getSizeName());
+        stmt.setDouble(2, size.getPrice());
 
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, size.getSizeName());
-            stmt.setDouble(2, size.getPrice());
-
-            int rowsInserted = stmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Size added successfully");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (!isAddOperation) {
+            stmt.setInt(3, size.getId());
         }
+    }
+
+    public int addSize(Size size) {
+        String query = "INSERT INTO size (size_name, price) VALUES (?, ?)";
+        return add(size, query);
     }
 
     public void updateSize(Size size) {
         String query = "UPDATE size SET size_name = ?, price = ? WHERE size_id = ?";
-
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, size.getSizeName());
-            stmt.setDouble(2, size.getPrice());
-            stmt.setInt(3, size.getId());
-
-            int rowsUpdated = stmt.executeUpdate();
-            if (rowsUpdated > 0) {
-                System.out.println("Size updated successfully");
-            } else {
-                System.out.println("No size found with the given ID");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        update(size, query);
     }
 
     public List<Size> getAllSizes() {

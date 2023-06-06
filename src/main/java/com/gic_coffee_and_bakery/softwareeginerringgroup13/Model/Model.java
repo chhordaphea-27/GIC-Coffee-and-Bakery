@@ -3,8 +3,6 @@ package com.gic_coffee_and_bakery.softwareeginerringgroup13.Model;
 public class Model {
     private int id;
 
-    
-
     public Model() {
     }
 

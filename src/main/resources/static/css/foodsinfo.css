@@ -29,9 +29,10 @@ body div {
 }
 
 .right-side {
-    width: calc(39%); 
+    width: 100% ;
     height: auto;    
     margin-top: 20px;
+    margin-left: 15px;
 
 }
 
@@ -134,17 +135,20 @@ body div {
     margin-top: 0px;
     background-color: #E8E8E8;
     width: 98%;
-    height: 816px;  
+    height: auto;  
     padding: 10px;
     border-radius: 15px;
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: flex-start;
-
+    gap: 10px;
     overflow-y: auto;
 
+}
+.drinkselection a:-webkit-any-link {
+    text-decoration: none;
 }
 
 .item {
@@ -326,6 +330,24 @@ body div {
 
 .right-side .info-right  .details .bold {
     font-weight:bold;
+}
+
+
+#sidebar-activate{
+    width: 190px;
+    margin-left: auto;
+    border-radius: 26px 0 0 26px;
+
+    background-color: white;
+    color: #343330;
+
+    padding-left: 30px;
+
+}
+
+#sidebar-activate svg path {
+    fill: #343330;
+
 }
 
 /* .right-side .info-bottom {

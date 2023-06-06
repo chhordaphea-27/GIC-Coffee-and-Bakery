@@ -36,18 +36,20 @@ body div {
 }
 
 .left-side {
-    width: 59%; 
+    width: 55%; 
     height: auto;
 
 }
 
 .right-side {
-    width: 39%; 
+    /* width: 39%;  */
     /* width: 30%; */
     height: auto;    
     margin-top: 20px;
+    margin-left: 15px;
 
-    
+
+
 }
 
 .left-header {
@@ -189,7 +191,13 @@ body div {
     /* margin-bottom: 15px; */
 
     
-    /* position: relative; */
+    position: relative;
+
+}
+
+
+.drinkselection a:-webkit-any-link {
+    text-decoration: none;
 }
 
 .item img{
@@ -398,3 +406,22 @@ body div {
     font-weight: bold;
     font-size: 24px;
 }
+
+
+#sidebar-activate{
+    width: 190px;
+    margin-left: auto;
+    border-radius: 26px 0 0 26px;
+
+    background-color: white;
+    color: #343330;
+
+    padding-left: 30px;
+
+}
+
+#sidebar-activate svg path {
+    fill: #343330;
+
+}
+

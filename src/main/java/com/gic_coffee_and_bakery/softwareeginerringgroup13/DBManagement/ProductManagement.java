@@ -1,128 +1,91 @@
 package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
-
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Category;
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Product;
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Size;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ProductManagement extends Management<Product> {
 
     @Override
     protected Product mapRowToModel(ResultSet rs) throws SQLException {
-        int productId = rs.getInt("product_id");
+        int id = rs.getInt("product_id");
         String name = rs.getString("name");
         String description = rs.getString("description");
-        String type = rs.getString("type");
-        int sizeId = rs.getInt("size_id");
-        int categoryId = rs.getInt("category_id");
 
-        // Retrieve the corresponding Size and Category objects
-        Size size = getSizeById(sizeId);
+        int categoryId = rs.getInt("category_id");
         Category category = getCategoryById(categoryId);
 
-        return new Product(productId, name, description, type, size, category);
+        String imageUrl = rs.getString("image_url");
+        java.sql.Date lastOrder = rs.getDate("last_order");
+
+        return new Product(id, name, description, category, imageUrl, lastOrder);
     }
 
-    private Size getSizeById(int sizeId) {
-        SizeManagement sizeManagement = new SizeManagement();
-        return sizeManagement.getSizeById(sizeId);
-            }
+    @Override
+    protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Product product) throws SQLException {
+        stmt.setString(1, product.getName());
+        stmt.setString(2, product.getDescription());
+        stmt.setInt(3, product.getCategory().getId());
+        stmt.setString(4, product.getImageUrl());
+        stmt.setDate(5, product.getLastOrder());
 
-    private Category getCategoryById(int categoryId) {
-        CategoryManagemet categoryManagement = new CategoryManagemet();
-        return categoryManagement.getCategoryById(categoryId);
-    }
-
-    public List<Product> getProductsByCategory(int categoryId) {
-        List<Product> productList = new ArrayList<>();
-        String query = "SELECT * FROM product WHERE category_id = ?";
-        
-        try {
-            Connection conn = getConnection();
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setInt(1, categoryId);
-            ResultSet rs = stmt.executeQuery();
-            
-            while (rs.next()) {
-                Product product = mapRowToModel(rs);
-                productList.add(product);
-            }
-            
-            rs.close();
-            stmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (!isAddOperation) {
+            stmt.setInt(6, product.getId());
         }
-        
-        return productList;
     }
-    
 
-    public void addProduct(Product product) {
-        String query = "INSERT INTO product (name, description, type, size_id, category_id) " +
-                       "VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, product.getName());
-            stmt.setString(2, product.getDescription());
-            stmt.setString(3, product.getType());
-            stmt.setInt(4, product.getSize().getId());
-            stmt.setInt(5, product.getCategory().getId());
-
-            int rowsInserted = stmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Product added successfully");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public int addProduct(Product product) {
+        String query = "INSERT INTO product (name, description, category_id, image_url, last_order) VALUES (?, ?, ?, ?, ?)";
+        return add(product, query);
     }
 
     public void updateProduct(Product product) {
-        String query = "UPDATE product SET name = ?, description = ?, type = ?, size_id = ?, category_id = ? " +
-                       "WHERE product_id = ?";
-
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, product.getName());
-            stmt.setString(2, product.getDescription());
-            stmt.setString(3, product.getType());
-            stmt.setInt(4, product.getSize().getId());
-            stmt.setInt(5, product.getCategory().getId());
-            stmt.setInt(6, product.getId());
-
-            int rowsUpdated = stmt.executeUpdate();
-            if (rowsUpdated > 0) {
-                System.out.println("Product updated successfully");
-            } else {
-                System.out.println("No product found with the given ID");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String query = "UPDATE product SET name=?, description=?, category_id=?, image_url=?, last_order=? WHERE product_id=?";
+        update(product, query);
     }
+
+    public void deleteProduct(int id) {
+        String query = "DELETE FROM product WHERE product_id=?";
+        delete(id, query);
+    }
+
 
     public List<Product> getAllProducts() {
         String query = "SELECT * FROM product";
         return getAll(query);
     }
 
-    public Product getProductById(int productId) {
-        String query = "SELECT * FROM product WHERE product_id = ?";
-        return getById(productId, query);
+    public List<Product> getAllFood() {
+        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id  FROM category WHERE type = 'Food')";
+        return getAll(query);
     }
 
-    public List<Product> queryProducts(String keyword) {
-        String query = "SELECT * FROM product WHERE name LIKE ? OR description LIKE ?";
+    public List<Product> getAllDrink() {
+        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id  FROM category WHERE type = 'Drink')";
+        return getAll(query);
+    }
+
+    public List<Product> getProductsByCategory(int categoryId) {
+        String query = "SELECT * FROM product WHERE category_id=?";
+        return query("", query, String.valueOf(categoryId));
+    }
+
+    public Product getProductById(int id) {
+        String query = "SELECT * FROM product WHERE product_id=?";
+        return getById(id, query);
+    }
+
+    public List<Product> searchProducts(String keyword) {
+        String query = "SELECT * FROM product WHERE name LIKE ?";
         return query(keyword, query);
     }
 
+    private Category getCategoryById(int categoryId) {
+        CategoryManagement categoryManagement = new CategoryManagement();
+        return categoryManagement.getCategoryById(categoryId);
+    }
 }

@@ -28,11 +28,9 @@ public class LoginController {
 								@RequestParam("password") String password){
 
 		UserManagement userManagement = new UserManagement();
-		User user = userManagement.loginUser(username, password);
+		User user = userManagement.login(username, password);
 
 		if(user!=null){
-			
-			
 			if(user.getRole().equals("Cashier")) {
 				return new ModelAndView("login");
 			}
