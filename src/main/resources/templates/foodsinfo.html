@@ -102,8 +102,7 @@
                 </button>
         
                 <div th:each="food: ${allFood}">
-                    <a class="item" method="get" onclick="showRightSide()" th:href="@{'/foodsinfo/displayFoodInfo?product_id=' + ${food.getId()}}">
-                        
+                    <a class="item" method="get" onclick="showRightSide()" th:href="@{'/foodsinfo/displayFoodInfo?product_id=' + ${food.getProduct().getId()}}">
                         
                         <div class="image-container">
                             <img src="/static/img/foods/icedgreentealatte.png" alt="">
@@ -125,7 +124,7 @@
                         </div>
                         <div class="nameandprice">
                             <p class="drinkname" th:text="${food.getProduct().getName()}">Green Tea</p>
-                            <p class="price" th:text="'$' + ${food.getSize().getPrice()}">$2.5</p>
+                            <p class="price" th:text="'$' + ${food.getSizes().get(0).getPrice()}">$2.5</p>
                         </div>
                     </a>
                 </div>
@@ -134,7 +133,7 @@
             </div>
         </div>
 
-        <div th:switch="${detailFood.getId()}" style="padding-left: 10px; padding-right: 10px;">
+        <div th:switch="${detailFood.getProduct().getId()}" style="padding-left: 10px; padding-right: 10px;">
             <div th:case="'0'"></div>
             <div th:case="*" class="right-side">
                 <div class="drinkinfo-header">
@@ -160,7 +159,7 @@
                     </div>
                     <div class="details">
                         <p class="bold">Price</p>
-                        <p th:text="${detailFood.getSize().getPrice()}">: 2.1 $</p>
+                        <p th:text="${detailFood.getSizes().get(0).getPrice()} + '$'">: 2.1 $</p>
                     </div>
                     <div class="details">
                         <p class="bold">Orders</p>

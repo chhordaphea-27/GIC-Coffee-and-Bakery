@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.ProductManagement;
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.ProductSizeManagement;
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Product;
-import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.ProductSize;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.*;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.*;
+
 
 @Controller
 public class FoodsInfoController {
@@ -30,39 +29,20 @@ public class FoodsInfoController {
 	public ModelAndView handleDataFromView(@RequestParam("product_id") int productId, 
 											Model model) {
 
-		
+		var t = getProductSizeListByID(productId);
 		model.addAttribute("allFood", getFoodTypeFromProduct());
-	    model.addAttribute("detailFood", getProductById(productId));
+	    model.addAttribute("detailFood", getProductSizeListByID(productId));
 	  return new ModelAndView("/foodsinfo");
 	}
 
-	private List<ProductSize> getAllProduct() {
-		ProductSizeManagement productSizeManagement = new ProductSizeManagement();
-		return productSizeManagement.getAllProductSizes();
+
+	private List<ProductSizeList> getFoodTypeFromProduct() {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getProductSizeListByType("Food")	;		
 	}
 
-
-	private ProductSize getProductById(int product_id) {
-		ProductSizeManagement productSizeManagement = new ProductSizeManagement();
-		return productSizeManagement.getProductSizeById(product_id);
+	private ProductSizeList getProductSizeListByID(int product_id) {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getProductSizeListByProductID(product_id);
 	}
-
-	private ArrayList<ProductSize> getFoodTypeFromProduct() {
-		ProductManagement productManagement = new ProductManagement();
-		List<Product> foods = productManagement.getAllFood();
-
-		ArrayList<ProductSize> allProductSizes = new ArrayList<>();
-		
-		ProductSizeManagement productSizeManagement = new ProductSizeManagement();
-		for (Product food : foods) {
-			List<ProductSize> ps = productSizeManagement.getProductSizesByProductId(food.getId());
-			for (ProductSize productSize : ps) {
-				allProductSizes.add(productSize);
-			}
-		}
-
-
-		return allProductSizes;
-	} 
-
 }

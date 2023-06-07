@@ -96,9 +96,9 @@
                     <p class="addtext">Add New Drink Category</p>
                 </button>
         
-                <div class="onlydrinkSelection" th:each="categoryDrink: ${allCategoryDrink}">
+                <div class="onlydrinkSelection">
     
-                    <div class="anotheritem" th:href="@{'/categories/displayDrinks?category_id=' + ${categoryDrink.getId()}}" method="get" onclick="showRightSide()">
+                    <a class="anotheritem" th:each="categoryDrink: ${allCategoryDrink}" th:href="@{'/categories/displayDrinks?category_id=' + ${categoryDrink.getId()}}" method="get" >
                         <div class="img-container">
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
                             
@@ -122,7 +122,7 @@
                             <p class="drinktype" th:text="${categoryDrink.getCategoryName()}">Hot Drinks</p>
                            
                         </div>
-                    </div>  
+                    </a>  
                                     
               
                 </div>
@@ -135,9 +135,9 @@
                     <p class="addtext">Add New Food Category</p>
                 </button>
         
-                <div class="onlydrinkSelection" th:each="categoryFood: ${allCategoryFood}">
+                <div class="onlydrinkSelection">
 
-                    <div class="anotheritem" th:href="@{'/categories/displayFoods?category_id=' + ${categoryFood.getId()}}" method="get" onclick="showRightSide()">
+                    <a class="anotheritem" th:each="categoryFood: ${allCategoryFood}" th:href="@{'/categories/displayFoods?category_id=' + ${categoryFood.getId()}}" method="get">
                         <div class="img-container">
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
                             
@@ -161,7 +161,7 @@
                             <p class="drinktype" th:text="${categoryFood.getCategoryName()}">Hot Drinks</p>
                            
                         </div>
-                    </div>
+                    </a>
     
              </div>
             </div>
@@ -170,7 +170,7 @@
     
         <div class="right-side">
             <div class="drinkinfo-header">
-                <h1 class="text">Hot Drinks </h1>
+                <h1 class="text" >Hot Drinks </h1>
                 <div class="quantity">
                     <h1 id="numOfDrinkFood">9</h1>
                     <p class="result">results</p>
@@ -180,7 +180,7 @@
             <div class="drinkfood-clicked">
                 <div class="onlydrinkSelection">
 
-                    <div class="anotheritem">
+                    <div class="anotheritem" th:each="product: ${selectedCate}">
                         <div class="img-container">
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
                             <div class="actionButton" hidden>
@@ -196,12 +196,12 @@
                                 </button>
                             </div>
                             <div class="effect" >
-                                <p class="code">GC0001</p>
+                                <p class="code" th:text="${product.getProduct().getId()}">GC0001</p>
                             </div>
                         </div>
                         <div class="nameandprice">
-                            <p class="drinkname">Green Tea</p>
-                            <p class="price">$2.5</p>
+                            <p class="drinkname" th:text="${product.getProduct().getName()}">Green Tea</p>
+                            <p class="price" th:text="${product.getSizes().get(0).getPrice()}">$2.5</p>
                         </div>
                     </div>
 

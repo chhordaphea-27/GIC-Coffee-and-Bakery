@@ -51,6 +51,65 @@ public abstract class Management<T> {
         }
     }
 
+    public List<T> query(String keyword, String query, Object... params) {
+        List<T> modelList = new ArrayList<>();
+    
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+    
+            int parameterCount = params.length;
+    
+            for (int i = 0; i < parameterCount; i++) {
+                Object param = params[i];
+                int parameterIndex = i + 1;
+    
+                if (param instanceof String) {
+                    stmt.setString(parameterIndex, (String) param);
+                } else if (param instanceof Integer) {
+                    stmt.setInt(parameterIndex, (Integer) param);
+                } else if (param instanceof Double) {
+                    stmt.setDouble(parameterIndex, (Double) param);
+                } else if (param instanceof Float) {
+                    stmt.setFloat(parameterIndex, (Float) param);
+                } else if (param instanceof Boolean) {
+                    stmt.setBoolean(parameterIndex, (Boolean) param);
+                } else if (param instanceof Date) {
+                    stmt.setDate(parameterIndex, (Date) param);
+                } else {
+                    stmt.setObject(parameterIndex, param);
+                }
+            }
+    
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    T model = mapRowToModel(rs);
+                    modelList.add(model);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    
+        return modelList;
+    }
+
+    protected List<T> getByParameter(Object param, String query) {
+        List<T> list = new ArrayList<>();
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setObject(1, param);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    T model = mapRowToModel(rs);
+                    list.add(model);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public int add(T model, String query) {
         int generatedId = -1;
 
@@ -163,45 +222,5 @@ public abstract class Management<T> {
         return model;
     }
 
-    public List<T> query(String keyword, String query, Object... params) {
-        List<T> modelList = new ArrayList<>();
-    
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-    
-            int parameterCount = params.length;
-    
-            for (int i = 0; i < parameterCount; i++) {
-                Object param = params[i];
-                int parameterIndex = i + 1;
-    
-                if (param instanceof String) {
-                    stmt.setString(parameterIndex, (String) param);
-                } else if (param instanceof Integer) {
-                    stmt.setInt(parameterIndex, (Integer) param);
-                } else if (param instanceof Double) {
-                    stmt.setDouble(parameterIndex, (Double) param);
-                } else if (param instanceof Float) {
-                    stmt.setFloat(parameterIndex, (Float) param);
-                } else if (param instanceof Boolean) {
-                    stmt.setBoolean(parameterIndex, (Boolean) param);
-                } else if (param instanceof Date) {
-                    stmt.setDate(parameterIndex, (Date) param);
-                } else {
-                    stmt.setObject(parameterIndex, param);
-                }
-            }
-    
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    T model = mapRowToModel(rs);
-                    modelList.add(model);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    
-        return modelList;
-    }
+
 }

@@ -36,8 +36,8 @@
 }
 
 .right-side {
-    width: 100%; 
-    /* width: 30%; */
+    /* width: 100%;  */
+    width: 45%;
     height: auto;    
     margin-top: 20px;
     margin-left: 15px;
@@ -102,11 +102,16 @@
     justify-content: flex-start;
     column-gap: 10px;
     row-gap: 20px;
+    
+    
 }
 
 .left-side .drinkselection .onlydrinkSelection {
     width: calc(100% - 170px)
     /* width: auto; */
+   
+    /* height: 180px;
+    overflow-y: auto; */
 }
 
 
@@ -307,6 +312,9 @@
     height: 170px;
     margin-bottom: 10px;
     
+}
+.drinkselection a:-webkit-any-link {
+    text-decoration: none;
 }
 
 .anotheritem .img-container {

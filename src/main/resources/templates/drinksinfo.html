@@ -101,7 +101,7 @@
                 </button>
         
                 <div th:each="drink: ${alldrink}">
-                    <a class="item" method="get" onclick="showRightSide()" th:href="@{'/drinksinfo/displayDrinksInfo?product_id=' + ${drink.getId()}}">
+                    <a class="item" method="get" th:href="@{'/drinksinfo/displayDrinksInfo?product_id=' + ${drink.getProduct().getId()}}">
                         <div class="image-container">
                             <img src="/static/img/drinks/icedgreentealatte.png" alt="">
                             <div class="actionButton" hidden>
@@ -117,12 +117,12 @@
                                 </button>
                             </div>
                             <div class="effect" >
-                                <p class="code" th:text="${drink.getId()}">GC0001</p>
+                                <p class="code" th:text="${drink.getProduct().getId()}">GC0001</p>
                             </div>
                         </div>
                         <div class="nameandprice">
-                            <p class="drinkname" th:text="${drink.getName()}">Green Tea</p>
-                            <p class="price" th:text="'$' + ${drink.getSize().getPrice()}">$2.5</p>
+                            <p class="drinkname" th:text="${drink.getProduct().getName()}">Green Tea</p>
+                            <p class="price" th:text="${drink.getSizes().get(0).getPrice()} + '$'">$ 99.99</p>
                         </div>
                     </a>
                 </div>
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div  th:switch="${detailDrink.getId()}" style="padding-left: 10px; padding-right: 10px;">
+        <div  th:switch="${detailDrink.getProduct().getId()}" style="padding-left: 10px; padding-right: 10px;">
             <div th:case="'0'"></div>
             <div th:case="*" class="right-side">
                 <div class="drinkinfo-header">
@@ -155,13 +155,10 @@
                         <p class="bold">Category</p>
                         <p th:text="${detailDrink.getProduct().getCategory().getCategoryName()}">: Frappe</p>
                     </div>
-                    <div class="details">
-                        <p class="bold">Price</p>
-                        <p th:text="'$' + ${detailDrink.getSize().getPrice()}">: 2.1 $</p>
-                    </div>
+                    
                     <div class="details">
                         <p class="bold">Orders</p>
-                        <p>: 99 times</p>
+                        <p th:text="${detailDrink.getProduct().getName()}">: 99 times</p>
                     </div>
                     <!-- <div class="details">
                         <p class="bold">Last Login</p>
@@ -171,6 +168,12 @@
                     <div class="details">
                         <p class="bold">Last Order</p>
                         <p th:text="${detailDrink.getProduct().getLastOrder()}">: 30/03/23 8:30:00</p>
+                    </div>
+
+                    <div class="details">
+                        <p class="allSizeAndPrice">
+                            <p th:each="size: ${detailDrink.getSizes()}" th:text="  ${size.getSizeName()[0]} +'  $' + ${size.getPrice()}"></p>
+                        </p>
                     </div>
                 </div>
     

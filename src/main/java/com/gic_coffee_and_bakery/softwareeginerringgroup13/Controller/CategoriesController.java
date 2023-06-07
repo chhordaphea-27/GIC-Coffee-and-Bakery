@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.CategoryManagement;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.ProductSizeListManagement;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.ProductSizeManagement;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Category;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.ProductSize;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.ProductSizeList;
 
 @Controller
 public class CategoriesController {
@@ -22,8 +24,8 @@ public class CategoriesController {
 
 
 		model.addAttribute("allCategoryDrink", showCategoryDrink());
-
 		model.addAttribute("allCategoryFood", showCategoryFood());
+		model.addAttribute("selectedCate", getAllProduct());
 
 		return new ModelAndView("categories");
 
@@ -34,7 +36,8 @@ public class CategoriesController {
 		// System.out.println("Category ID: " + getCategoryById(category_id).getId());
 
 		model.addAttribute("allCategoryDrink", showCategoryDrink());
-	    model.addAttribute("allDrinks", showDrinksProduct(category_id));
+	    model.addAttribute("allCategoryFood", showCategoryFood());
+		model.addAttribute("selectedCate", getProductByCategory(category_id));
 
 	  	return new ModelAndView("categories");
 	}
@@ -43,8 +46,9 @@ public class CategoriesController {
 	public ModelAndView handleDataFromFoodView(@RequestParam("category_id") int category_id, Model model) {
 		// System.out.println("Category ID: " + getCategoryById(category_id).getId());
 
-		model.addAttribute("allCategoryFood", showCategoryFood());
-	    model.addAttribute("allFoods", showFoodsProduct(category_id));
+		model.addAttribute("allCategoryDrink", showCategoryDrink());
+	    model.addAttribute("allCategoryFood", showCategoryFood());
+		model.addAttribute("selectedCate", getProductByCategory(category_id));
 
 	 	 return new ModelAndView("categories");
 	}
@@ -70,7 +74,15 @@ public class CategoriesController {
 		ProductSizeManagement productSizeManagement = new ProductSizeManagement();
 		return productSizeManagement.getProductSizesByCategory(category_id);
 	}
-	
+
+	private List<ProductSizeList> getProductByCategory(int category_id) {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getProductSizeListByCategoryID(category_id);
+	}
+	private  List<ProductSizeList> getAllProduct() {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getAllProductSizeList();
+	}
 
 
 

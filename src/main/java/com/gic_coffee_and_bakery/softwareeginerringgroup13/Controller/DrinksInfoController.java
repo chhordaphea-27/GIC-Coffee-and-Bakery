@@ -18,7 +18,7 @@ public class DrinksInfoController {
 
 		ProductSize emptyDrink = new ProductSize(0, new Size(), new Product());
 
-		model.addAttribute("alldrink", getallDrinks());
+		model.addAttribute("alldrink", getDrinkTypeFromProduct());
 	    model.addAttribute("detailDrink", emptyDrink);
 
 		return new ModelAndView("drinksinfo");
@@ -29,20 +29,20 @@ public class DrinksInfoController {
 											Model model) {
 
 		   
-		model.addAttribute("alldrink", getallDrinks());
-	    model.addAttribute("detailDrink", getProductById(productId));
+		model.addAttribute("alldrink", getDrinkTypeFromProduct());
+	    model.addAttribute("detailDrink", getProductSizeListByID(productId));
 	  return new ModelAndView("/drinksinfo");
 	}
 
-	private List<Product> getallDrinks() {
-		ProductManagement productManagement = new ProductManagement();
-		return productManagement.getAllProducts();
+
+	private List<ProductSizeList> getDrinkTypeFromProduct() {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getProductSizeListByType("Drink")	;		
 	}
 
-
-	private Product getProductById(int product_id) {
-		ProductManagement productManagement = new ProductManagement();
-		return productManagement.getProductById(product_id);
+	private ProductSizeList getProductSizeListByID(int product_id) {
+		ProductSizeListManagement productSizeListManagement = new ProductSizeListManagement();
+		return productSizeListManagement.getProductSizeListByProductID(product_id);
 	}
 
 
