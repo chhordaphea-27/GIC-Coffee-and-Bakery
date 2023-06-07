@@ -121,7 +121,12 @@ hr{
     border-width: 0.1px;
     border-color: #737272 ;
     color: white;
+    text-decoration: none;
+
 }
+
+
+
 .delete{
     padding: 27px;
     margin: 10px;
