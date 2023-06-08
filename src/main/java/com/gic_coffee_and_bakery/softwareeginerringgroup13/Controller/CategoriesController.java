@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,7 +52,49 @@ public class CategoriesController {
 
 	 	 return new ModelAndView("categories");
 	}
+
+    @PostMapping("/categories/addUpdateCategory")
+    public ModelAndView addNewCategory(Model model,
+                                @RequestParam("categoryId") int categoryID, 
+                                @RequestParam("categoryName") String categoryName, 
+                                @RequestParam("categoryType") String type, 
+                                @RequestParam("isCreate") Boolean isCreate
+                                ) {
+
+        
+        CategoryManagement categoryManagemet = new CategoryManagement();
+        Category category = new Category(categoryID, categoryName, type);
+
+        if (categoryName != "") {
+            if(isCreate) {
+                categoryID = categoryManagemet.addCategory(category);
+            } else {
+                categoryManagemet.updateCategory(category);
+            }            
+        }
+
+
+
+		model.addAttribute("allCategoryDrink", showCategoryDrink());
+		model.addAttribute("allCategoryFood", showCategoryFood());
+		model.addAttribute("selectedCate", getAllProduct());
+		return new ModelAndView("categories");
+    }
 	
+	@GetMapping("/categories/deletecate")
+	private ModelAndView deleteUserhandler(Model model,
+		@RequestParam("cate_id") int cate_id
+		) {
+
+			CategoryManagement categoryManagement = new CategoryManagement();
+			categoryManagement.disableCategory(cate_id);
+			
+			model.addAttribute("allCategoryDrink", showCategoryDrink());
+			model.addAttribute("allCategoryFood", showCategoryFood());
+			model.addAttribute("selectedCate", getAllProduct());
+			return new ModelAndView("categories");
+	}
+
 
 	
 	private	List<Category> showCategoryDrink() {

@@ -2,11 +2,9 @@ package com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement;
 
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.*;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public class OrderItemManagement extends Management<OrderItem> {
@@ -76,13 +74,13 @@ public class OrderItemManagement extends Management<OrderItem> {
 
 
     // Implement methods to fetch Order and ProductSize by their IDs from the database
-    private Order getOrderById(int orderId) {
-        OrderManagement orderManagement = new OrderManagement();
-        return orderManagement.getOrderById(orderId);
-    }
+    // private Order getOrderById(int orderId) {
+    //     OrderManagement orderManagement = new OrderManagement();
+    //     return orderManagement.getOrderById(orderId);
+    // }
     
-    private ProductSize getProductSizeById(int productSizeId) {
-        ProductSizeManagement productSizeManagement = new ProductSizeManagement();
-        return productSizeManagement.getProductSizeById(productSizeId);
-    }
+    // private ProductSize getProductSizeById(int productSizeId) {
+    //     ProductSizeManagement productSizeManagement = new ProductSizeManagement();
+    //     return productSizeManagement.getProductSizeById(productSizeId);
+    // }
 }

@@ -52,16 +52,6 @@ public class ProductSizeManagement extends Management<ProductSize> {
         delete(id, query);
     }
 
-    private Size getSizeById(int id) {
-        SizeManagement sizeManagement = new SizeManagement();
-        return sizeManagement.getSizeById(id);
-    }
-
-    private Product getProductById(int id) {
-        ProductManagement productManagement = new ProductManagement();
-        return productManagement.getProductById(id);
-    }
-
     public List<ProductSize> getProductSizesByProductId(int productId) {
         String query = "SELECT * FROM product_size WHERE product_id = ?";
         return query("Keyword", query, productId);
@@ -75,5 +65,26 @@ public class ProductSizeManagement extends Management<ProductSize> {
         return query("Keyword", query, category_id);
     }
     
+
+    public ProductSize getProductSizeByProductAndSizeID(int productId, int sizeId) {
+        String query = "SELECT * FROM product_size WHERE product_id = ? AND size_id = ?";
+        List<ProductSize> productSizes = query("Keyword", query, productId, sizeId);
+        if (productSizes.isEmpty()) {
+            return null; // No matching record found
+        }
+        return productSizes.get(0);
+    }
+    
+
+
+    private Size getSizeById(int id) {
+        SizeManagement sizeManagement = new SizeManagement();
+        return sizeManagement.getSizeById(id);
+    }
+
+    private Product getProductById(int id) {
+        ProductManagement productManagement = new ProductManagement();
+        return productManagement.getProductById(id);
+    }
 
 }

@@ -491,3 +491,101 @@
     font-weight: bold;
     font-size: 24px;
 } */
+
+
+
+#newPopUpView {
+    position: fixed;
+    margin: auto;
+  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3.5px);
+  
+    display: none;
+  }
+
+#newPopUpView table {
+    position: absolute;
+    width: 648px;
+    height: 234px;
+    left: calc(50% - 648px/2);
+    top: calc(50% - 234px/2);
+  
+    padding-left: 10%;
+    padding-right: 10%;
+
+
+}
+
+
+
+#DeletePopUp {
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3.5px);
+    display: none;
+    position: fixed;
+
+
+    font-size: 27px;
+    color: #131414;
+    text-align: left;
+    font-family: 'Quicksand';
+}
+
+#DeletePopUp .popup-container{
+    width: 400px;
+    height: 250px;
+    background-color: #FFFFFF;
+    background-color: cornflowerblue;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 7px;
+}
+#DeletePopUp .popup-container h1{
+    text-align: center;
+    padding-top: 10px;
+}
+#DeletePopUp .popup-container h3{
+    text-align: center;
+    margin-top: 35px;
+    
+}
+#DeletePopUp .done{
+    width: 90%;
+    margin: 50px auto;
+    height: 55px;
+    /* background-color: chartreuse; */
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#DeletePopUp .btn{
+    width: 48%;
+    height: 100%;
+    /* background-color: chocolate; */
+    
+}
+#DeletePopUp button{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 230, 225);
+    border: 0px;
+    justify-content: space-between;
+    border: 1.23684px solid #636363;
+    border-radius: 9.89472px; 
+    cursor: pointer;
+}
+#DeletePopUp .btn span{
+    font-size: 17px;
+    padding-left: 5px;
+}

@@ -416,7 +416,7 @@ margin-bottom: 0px;
     position: fixed;
 
 
-    font-size: 27px;
+    font-size: 20px;
     color: #131414;
     text-align: left;
     font-family: 'Quicksand';
@@ -591,6 +591,11 @@ margin-bottom: 0px;
     cursor: pointer;
 }
 
+#popup-background input, #popup-background select {
+    font-size: 20px;
+
+}
+
 #popup-background input[type=name] {
     padding: 20px 20px;
     margin: px 0;
@@ -640,34 +645,37 @@ margin-bottom: 0px;
 
 }
 
-#popup-background #priceSelection {
-    
-}
 
+#popup-background .priceConatiner  {
+    position: absolute;
+    top: -26px;
+    left: 95px;
+    width: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 3;
+    gap: 5px;
+
+}
 #popup-background input[type=price] {
-    padding: 20px 20px;
+    
     margin: px 0;
     box-sizing: border-box;
     border: #d167af;
-    height: px;
-    position: absolute;
-    left: 350px;
-    top: -26px;
     background: h#B6B6B6;
     border: px solid #B6B6B6;
     box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
     border-radius: 10px;
-    border-radius: 10px;
     margin-top: 5px;
-    width: 40%;
     height: 40px;
+    width: calc((100% - 15px) / 3);
+    padding-left: 5px;
 
     color: rgb(15, 13, 13);
     align-items: center;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-top: 0.1px;
-    padding: 12px 20px;
+
     margin: 8px 0;
     box-sizing: border-box;
 }

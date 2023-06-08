@@ -7,6 +7,7 @@
     <title>Categories</title>
     <link rel="stylesheet" href="/static/css/categories.css">
     <link rel="stylesheet" href="/static/css/sidebar.css">
+    <link rel="stylesheet" href="/static/css/addCategory.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -91,7 +92,7 @@
             </div>
         
             <div class="drinkselection">
-                <button class="add-new-container">
+                <button class="add-new-container" onclick="openCatePopup(event, true, 'Drink', this)">
                     <p class="addsign">+</p>
                     <p class="addtext">Add New Drink Category</p>
                 </button>
@@ -103,12 +104,16 @@
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
                             
                             <div class="actionButton" hidden>
-                                <button class="btn" hidden>
+                                <button class="btn" hidden onclick="openCatePopup(event, false, 'Drink', this)"
+                                                        th:attr="cate_id=${categoryDrink.getId()},
+                                                                cate_name=${categoryDrink.getCategoryName()} ">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.8107 5.01424L10.3012 2.50424C10.2178 2.42078 10.1187 2.35456 10.0097 2.30939C9.90062 2.26422 9.78374 2.24097 9.66572 2.24097C9.54769 2.24097 9.43082 2.26422 9.32178 2.30939C9.21274 2.35456 9.11366 2.42078 9.03021 2.50424L2.10454 9.43048C2.02073 9.51362 1.95429 9.61259 1.90907 9.72164C1.86385 9.83069 1.84075 9.94765 1.84113 10.0657V12.5757C1.84113 12.814 1.93581 13.0426 2.10433 13.2111C2.27286 13.3797 2.50143 13.4743 2.73977 13.4743H5.24977C5.36782 13.4747 5.48477 13.4516 5.59382 13.4064C5.70287 13.3612 5.80185 13.2947 5.88499 13.2109L12.8107 6.28525C12.8941 6.2018 12.9603 6.10273 13.0055 5.99369C13.0507 5.88465 13.0739 5.76778 13.0739 5.64975C13.0739 5.53172 13.0507 5.41485 13.0055 5.30581C12.9603 5.19677 12.8941 5.09769 12.8107 5.01424ZM5.24977 12.5757H2.73977V10.0657L7.68226 5.1232L10.1923 7.63321L5.24977 12.5757ZM10.8275 6.99742L8.31748 4.48798L9.66544 3.14003L12.1754 5.64947L10.8275 6.99742Z" fill="black"/>
                                     </svg>
                                 </button>
-                                <button class="btn" hidden >
+                                <button class="btn" hidden onclick="displayDeletePopup(event, this)"
+                                                    th:attr="cate_id=${categoryDrink.getId()},
+                                                            cate_name=${categoryDrink.getCategoryName()} ">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.7096 3.58951H2.82456C2.7054 3.58951 2.59111 3.63685 2.50685 3.72111C2.42258 3.80537 2.37524 3.91966 2.37524 4.03883C2.37524 4.15799 2.42258 4.27228 2.50685 4.35654C2.59111 4.4408 2.7054 4.48814 2.82456 4.48814H3.27388V12.5759C3.27388 12.8142 3.36856 13.0428 3.53708 13.2113C3.70561 13.3798 3.93418 13.4745 4.17252 13.4745H11.3616C11.5999 13.4745 11.8285 13.3798 11.997 13.2113C12.1656 13.0428 12.2602 12.8142 12.2602 12.5759V4.48814H12.7096C12.8287 4.48814 12.943 4.4408 13.0273 4.35654C13.1115 4.27228 13.1589 4.15799 13.1589 4.03883C13.1589 3.91966 13.1115 3.80537 13.0273 3.72111C12.943 3.63685 12.8287 3.58951 12.7096 3.58951ZM11.3616 12.5759H4.17252V4.48814H11.3616V12.5759ZM5.07115 2.24155C5.07115 2.12239 5.11849 2.0081 5.20275 1.92384C5.28702 1.83958 5.4013 1.79224 5.52047 1.79224H10.0136C10.1328 1.79224 10.2471 1.83958 10.3314 1.92384C10.4156 2.0081 10.463 2.12239 10.463 2.24155C10.463 2.36072 10.4156 2.47501 10.3314 2.55927C10.2471 2.64353 10.1328 2.69087 10.0136 2.69087H5.52047C5.4013 2.69087 5.28702 2.64353 5.20275 2.55927C5.11849 2.47501 5.07115 2.36072 5.07115 2.24155Z" fill="#C7283C"/>
                                     </svg>
@@ -130,7 +135,7 @@
             </div>
     
             <div class="drinkselection">
-                <button class="add-new-container">
+                <button class="add-new-container" onclick="openCatePopup(event, true, 'Food', this)">
                     <p class="addsign">+</p>
                     <p class="addtext">Add New Food Category</p>
                 </button>
@@ -142,12 +147,16 @@
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
                             
                             <div class="actionButton" hidden>
-                                <button class="btn" hidden>
+                                <button class="btn" hidden onclick="openCatePopup(event, false, 'Food', this)"
+                                                    th:attr="cate_id=${categoryFood.getId()},
+                                                            cate_name=${categoryFood.getCategoryName()} ">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.8107 5.01424L10.3012 2.50424C10.2178 2.42078 10.1187 2.35456 10.0097 2.30939C9.90062 2.26422 9.78374 2.24097 9.66572 2.24097C9.54769 2.24097 9.43082 2.26422 9.32178 2.30939C9.21274 2.35456 9.11366 2.42078 9.03021 2.50424L2.10454 9.43048C2.02073 9.51362 1.95429 9.61259 1.90907 9.72164C1.86385 9.83069 1.84075 9.94765 1.84113 10.0657V12.5757C1.84113 12.814 1.93581 13.0426 2.10433 13.2111C2.27286 13.3797 2.50143 13.4743 2.73977 13.4743H5.24977C5.36782 13.4747 5.48477 13.4516 5.59382 13.4064C5.70287 13.3612 5.80185 13.2947 5.88499 13.2109L12.8107 6.28525C12.8941 6.2018 12.9603 6.10273 13.0055 5.99369C13.0507 5.88465 13.0739 5.76778 13.0739 5.64975C13.0739 5.53172 13.0507 5.41485 13.0055 5.30581C12.9603 5.19677 12.8941 5.09769 12.8107 5.01424ZM5.24977 12.5757H2.73977V10.0657L7.68226 5.1232L10.1923 7.63321L5.24977 12.5757ZM10.8275 6.99742L8.31748 4.48798L9.66544 3.14003L12.1754 5.64947L10.8275 6.99742Z" fill="black"/>
                                     </svg>
                                 </button>
-                                <button class="btn" hidden >
+                                <button class="btn" hidden onclick="displayDeletePopup(event, this)"
+                                                    th:attr="cate_id=${categoryFood.getId()},
+                                                            cate_name=${categoryFood.getCategoryName()} ">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.7096 3.58951H2.82456C2.7054 3.58951 2.59111 3.63685 2.50685 3.72111C2.42258 3.80537 2.37524 3.91966 2.37524 4.03883C2.37524 4.15799 2.42258 4.27228 2.50685 4.35654C2.59111 4.4408 2.7054 4.48814 2.82456 4.48814H3.27388V12.5759C3.27388 12.8142 3.36856 13.0428 3.53708 13.2113C3.70561 13.3798 3.93418 13.4745 4.17252 13.4745H11.3616C11.5999 13.4745 11.8285 13.3798 11.997 13.2113C12.1656 13.0428 12.2602 12.8142 12.2602 12.5759V4.48814H12.7096C12.8287 4.48814 12.943 4.4408 13.0273 4.35654C13.1115 4.27228 13.1589 4.15799 13.1589 4.03883C13.1589 3.91966 13.1115 3.80537 13.0273 3.72111C12.943 3.63685 12.8287 3.58951 12.7096 3.58951ZM11.3616 12.5759H4.17252V4.48814H11.3616V12.5759ZM5.07115 2.24155C5.07115 2.12239 5.11849 2.0081 5.20275 1.92384C5.28702 1.83958 5.4013 1.79224 5.52047 1.79224H10.0136C10.1328 1.79224 10.2471 1.83958 10.3314 1.92384C10.4156 2.0081 10.463 2.12239 10.463 2.24155C10.463 2.36072 10.4156 2.47501 10.3314 2.55927C10.2471 2.64353 10.1328 2.69087 10.0136 2.69087H5.52047C5.4013 2.69087 5.28702 2.64353 5.20275 2.55927C5.11849 2.47501 5.07115 2.36072 5.07115 2.24155Z" fill="#C7283C"/>
                                     </svg>
@@ -183,18 +192,7 @@
                     <div class="anotheritem" th:each="product: ${selectedCate}">
                         <div class="img-container">
                             <img src="/static/img/categories/icedgreentealatte.png" alt="">
-                            <div class="actionButton" hidden>
-                                <button class="btn" hidden>
-                                    <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.8107 5.01424L10.3012 2.50424C10.2178 2.42078 10.1187 2.35456 10.0097 2.30939C9.90062 2.26422 9.78374 2.24097 9.66572 2.24097C9.54769 2.24097 9.43082 2.26422 9.32178 2.30939C9.21274 2.35456 9.11366 2.42078 9.03021 2.50424L2.10454 9.43048C2.02073 9.51362 1.95429 9.61259 1.90907 9.72164C1.86385 9.83069 1.84075 9.94765 1.84113 10.0657V12.5757C1.84113 12.814 1.93581 13.0426 2.10433 13.2111C2.27286 13.3797 2.50143 13.4743 2.73977 13.4743H5.24977C5.36782 13.4747 5.48477 13.4516 5.59382 13.4064C5.70287 13.3612 5.80185 13.2947 5.88499 13.2109L12.8107 6.28525C12.8941 6.2018 12.9603 6.10273 13.0055 5.99369C13.0507 5.88465 13.0739 5.76778 13.0739 5.64975C13.0739 5.53172 13.0507 5.41485 13.0055 5.30581C12.9603 5.19677 12.8941 5.09769 12.8107 5.01424ZM5.24977 12.5757H2.73977V10.0657L7.68226 5.1232L10.1923 7.63321L5.24977 12.5757ZM10.8275 6.99742L8.31748 4.48798L9.66544 3.14003L12.1754 5.64947L10.8275 6.99742Z" fill="black"/>
-                                    </svg>
-                                </button>
-                                <button class="btn" hidden >
-                                    <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.7096 3.58951H2.82456C2.7054 3.58951 2.59111 3.63685 2.50685 3.72111C2.42258 3.80537 2.37524 3.91966 2.37524 4.03883C2.37524 4.15799 2.42258 4.27228 2.50685 4.35654C2.59111 4.4408 2.7054 4.48814 2.82456 4.48814H3.27388V12.5759C3.27388 12.8142 3.36856 13.0428 3.53708 13.2113C3.70561 13.3798 3.93418 13.4745 4.17252 13.4745H11.3616C11.5999 13.4745 11.8285 13.3798 11.997 13.2113C12.1656 13.0428 12.2602 12.8142 12.2602 12.5759V4.48814H12.7096C12.8287 4.48814 12.943 4.4408 13.0273 4.35654C13.1115 4.27228 13.1589 4.15799 13.1589 4.03883C13.1589 3.91966 13.1115 3.80537 13.0273 3.72111C12.943 3.63685 12.8287 3.58951 12.7096 3.58951ZM11.3616 12.5759H4.17252V4.48814H11.3616V12.5759ZM5.07115 2.24155C5.07115 2.12239 5.11849 2.0081 5.20275 1.92384C5.28702 1.83958 5.4013 1.79224 5.52047 1.79224H10.0136C10.1328 1.79224 10.2471 1.83958 10.3314 1.92384C10.4156 2.0081 10.463 2.12239 10.463 2.24155C10.463 2.36072 10.4156 2.47501 10.3314 2.55927C10.2471 2.64353 10.1328 2.69087 10.0136 2.69087H5.52047C5.4013 2.69087 5.28702 2.64353 5.20275 2.55927C5.11849 2.47501 5.07115 2.36072 5.07115 2.24155Z" fill="#C7283C"/>
-                                    </svg>
-                                </button>
-                            </div>
+
                             <div class="effect" >
                                 <p class="code" th:text="${product.getProduct().getId()}">GC0001</p>
                             </div>
@@ -216,6 +214,128 @@
         </div>
     </div>
 
+    <div id="newPopUpView">
+        <table>
+            <form method="post" action="/categories/addUpdateCategory">
+                <input type="hidden" name="isCreate" value="true" id="isCreateStatus">
+                <input type="hidden" name="categoryId" id="categoryId" value="0">
+                <input type="hidden" name="categoryType" id="categoryType" >
+                
+                <tr>
+                    <td class="top" colspan="2"><h2 id="titleNewCaetgoryPopUp">New Category</h2></td>
+                </tr>
+                <tr>
+                    <td>Category Name</td>
+                    <td class="right"><input type="text" name="categoryName" id="categoryName"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="right">
+                        <button class="cancel" onclick="closeCatePopup()" type="reset">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5833 19.0618C19.6529 19.1314 19.7082 19.2141 19.7459 19.3051C19.7835 19.3961 19.8029 19.4936 19.8029 19.5921C19.8029 19.6905 19.7835 19.7881 19.7459 19.8791C19.7082 19.97 19.6529 20.0527 19.5833 20.1224C19.5137 20.192 19.431 20.2472 19.34 20.2849C19.249 20.3226 19.1515 20.342 19.053 20.342C18.9545 20.342 18.857 20.3226 18.766 20.2849C18.675 20.2472 18.5923 20.192 18.5227 20.1224L12.3072 13.9059L6.09176 20.1224C5.95112 20.263 5.76037 20.342 5.56147 20.342C5.36257 20.342 5.17182 20.263 5.03118 20.1224C4.89054 19.9817 4.81152 19.791 4.81152 19.5921C4.81152 19.3932 4.89054 19.2024 5.03118 19.0618L11.2476 12.8463L5.03118 6.63082C4.89054 6.49018 4.81152 6.29943 4.81152 6.10053C4.81152 5.90163 4.89054 5.71088 5.03118 5.57024C5.17182 5.4296 5.36257 5.35059 5.56147 5.35059C5.76037 5.35059 5.95112 5.4296 6.09176 5.57024L12.3072 11.7866L18.5227 5.57024C18.6633 5.4296 18.8541 5.35059 19.053 5.35059C19.2519 5.35059 19.4426 5.4296 19.5833 5.57024C19.7239 5.71088 19.8029 5.90163 19.8029 6.10053C19.8029 6.29943 19.7239 6.49018 19.5833 6.63082L13.3669 12.8463L19.5833 19.0618Z" fill="#C7283C"/>
+                            </svg>
+                            Cancel
+                                
+                        </button>
+                        <button class="add" id="confirmAddCategoryButton" type="submit">
+                            <svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.7076 9.70751L12.7076 25.7075C12.6147 25.8005 12.5044 25.8742 12.383 25.9246C12.2616 25.9749 12.1315 26.0008 12.0001 26.0008C11.8687 26.0008 11.7385 25.9749 11.6171 25.9246C11.4957 25.8742 11.3854 25.8005 11.2926 25.7075L4.29257 18.7075C4.10493 18.5199 3.99951 18.2654 3.99951 18C3.99951 17.7346 4.10493 17.4801 4.29257 17.2925C4.48021 17.1049 4.7347 16.9994 5.00007 16.9994C5.26543 16.9994 5.51993 17.1049 5.70757 17.2925L12.0001 23.5863L27.2926 8.29251C27.4802 8.10487 27.7347 7.99945 28.0001 7.99945C28.2654 7.99945 28.5199 8.10487 28.7076 8.29251C28.8952 8.48015 29.0006 8.73464 29.0006 9.00001C29.0006 9.26537 28.8952 9.51987 28.7076 9.70751Z" fill="white"/>
+                            </svg>
+                                
+                            Done
+                            
+                        </button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+
+    <div id="DeletePopUp">
+        <div class="popup-container" >
+            <form method="get" action="/categories/deletecate">
+
+            <h1 id="title">Delete Table</h1>
+            <h3 id="message">Do you want to delete this <br>table</h3>
+            <div class="done">
+                    <input type="hidden" name="cate_id" id="cate_id" value="0">
     
+                    <div class="btn">
+                        <button onclick="closeDeletePopup()" type="reset">
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5843 14.0608C15.6539 14.1304 15.7092 14.2131 15.7469 14.3041C15.7845 14.3951 15.8039 14.4926 15.8039 14.5911C15.8039 14.6896 15.7845 14.7871 15.7469 14.8781C15.7092 14.9691 15.6539 15.0517 15.5843 15.1214C15.5146 15.191 15.432 15.2463 15.341 15.2839C15.25 15.3216 15.1525 15.341 15.054 15.341C14.9555 15.341 14.858 15.3216 14.767 15.2839C14.676 15.2463 14.5933 15.191 14.5237 15.1214L8.30823 8.90497L2.09275 15.1214C1.95211 15.262 1.76136 15.341 1.56246 15.341C1.36356 15.341 1.17281 15.262 1.03217 15.1214C0.891527 14.9807 0.812515 14.79 0.812515 14.5911C0.812515 14.3922 0.891527 14.2014 1.03217 14.0608L7.24858 7.84532L1.03217 1.62985C0.891527 1.48921 0.812515 1.29845 0.812515 1.09956C0.812515 0.900657 0.891527 0.709906 1.03217 0.569263C1.17281 0.428621 1.36356 0.349609 1.56246 0.349609C1.76136 0.349609 1.95211 0.428621 2.09275 0.569263L8.30823 6.78567L14.5237 0.569263C14.6643 0.428621 14.8551 0.349609 15.054 0.349609C15.2529 0.349609 15.4436 0.428621 15.5843 0.569263C15.7249 0.709906 15.8039 0.900657 15.8039 1.09956C15.8039 1.29845 15.7249 1.48921 15.5843 1.62985L9.36787 7.84532L15.5843 14.0608Z" fill="#636363"/>
+                            </svg>
+                            Cancel
+                            
+                        </button>
+                    </div>
+                    <div class="btn">
+                        <button style="background-color: #E8658C; border: 0px;" type="submit">
+                            <svg width="17" height="17" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.0751 8.13056L10.0851 20.1206C10.0155 20.1902 9.9329 20.2455 9.84192 20.2832C9.75095 20.3209 9.65344 20.3403 9.55496 20.3403C9.45648 20.3403 9.35896 20.3209 9.26799 20.2832C9.17702 20.2455 9.09437 20.1902 9.02477 20.1206L3.77915 14.8749C3.63854 14.7343 3.55954 14.5436 3.55954 14.3448C3.55954 14.1459 3.63854 13.9552 3.77915 13.8146C3.91976 13.674 4.11048 13.595 4.30933 13.595C4.50819 13.595 4.6989 13.674 4.83952 13.8146L9.55496 18.5309L21.0148 7.07019C21.1554 6.92958 21.3461 6.85059 21.545 6.85059C21.7438 6.85059 21.9345 6.92958 22.0751 7.07019C22.2158 7.21081 22.2948 7.40152 22.2948 7.60038C22.2948 7.79923 22.2158 7.98995 22.0751 8.13056Z" fill="white"/>
+                            </svg>
+                            Done
+                        </button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    
+    </div>
+        
+    
+
+    <script>
+        function openCatePopup(event, isCreate, type, data) {
+            event.preventDefault()
+            document.getElementById("newPopUpView").style.display = 'block';
+            
+            const title = document.getElementById("titleNewCaetgoryPopUp")
+        
+            document.getElementById("categoryType").value = type
+            
+
+            console.log("ID: " + data.getAttribute("cate_id"))
+
+             if(isCreate) {
+                 document.getElementById("isCreateStatus").value = "true"
+                 title.innerHTML = "New Category";
+             } else {
+                 document.getElementById("isCreateStatus").value = "false"
+                 title.innerHTML = "Update";
+
+                document.getElementById("categoryType").value = type
+                document.getElementById("categoryName").value = data.getAttribute("cate_name")
+                document.getElementById("categoryId").value = data.getAttribute("cate_id")
+             }
+
+        }
+        
+        function closeCatePopup() {
+            document.getElementById("newPopUpView").style.display = 'none';
+        }
+
+
+        function displayDeletePopup(event, data) {
+            event.preventDefault()
+            
+            document.getElementById("DeletePopUp").style.display = "block"
+            
+            document.getElementById("cate_id").value = data.getAttribute("cate_id")
+
+            document.getElementById("title").innerHTML = "Delete Catgory";
+            document.getElementById("message").innerHTML = `Do you want to delete ${data.getAttribute("cate_name")}? `
+            
+            console.log("document.getElementById('usrID'): ", document.getElementById("cate_id"))
+        }
+        
+        function closeDeletePopup() {
+            document.getElementById("DeletePopUp").style.display = "none";
+    
+        }
+
+
+    </script>
 </body>
 </html>
