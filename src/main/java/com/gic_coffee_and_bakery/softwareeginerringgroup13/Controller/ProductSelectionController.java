@@ -7,12 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 import ch.qos.logback.core.model.Model;
 
 @Controller
-public class OrderingController {
-    @GetMapping("/payment")	
+public class ProductSelectionController {
+    @GetMapping("/product_selection")	
 	public ModelAndView test(Model model) {
 
 
 
-		return new ModelAndView("payment");
+		return new ModelAndView("product_selection");
 	}
 }
