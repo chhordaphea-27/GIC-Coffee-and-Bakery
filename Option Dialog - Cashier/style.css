@@ -1,0 +1,230 @@
+.body {
+    font-family: 'Quicksand';
+}
+
+.order-options{
+    width: 700px;
+    height: 465px;
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
+    /* padding: 20px; */
+}
+
+.order-options .header {
+    
+    width: 100%;
+    height: 45px;
+    background-color: #E8658C;
+    border-radius: 10px;
+    box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-options .header h2 {
+    font-family: 'Quicksand';
+    font-weight: bold; 
+    /* font-size: 20px; */
+    color: white;
+    
+}
+.order-options .size-container {
+    position: relative;
+    width: 250px;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: gray;
+
+
+    margin-left: 30px;
+    margin-top: 30px;
+    padding: 13px;
+}
+
+.order-options .size-container p {
+    position: relative;
+    font-size: 22px;
+    font-weight: 900px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    z-index: 2;
+
+    margin-left: 5px;
+    margin-top: -30px;
+    width: 50px;
+}
+.order-options .size-container hr {
+    position: absolute;
+    top: -8.5px;
+    z-index: 1;
+    width: 50px;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 0.5px;
+    
+}
+
+.order-options .size-container .btn-container {
+    display: flex;
+    justify-content: space-between;
+    /* width: 300px; */
+}
+
+.order-options .size-container button {
+    width: 70px;
+    height: 50px;
+    background-color: #F1F1F1;
+    border-style: none;
+    font-size: 22px;
+    font-weight: 800px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-top: -20px;
+    /* margin-right: 20px; */
+}
+
+
+.order-options .size-container button:hover, .order-options .size-container button:focus {
+    background-color: #E8658C;
+    color: white;
+
+}
+
+.order-options .option-container {
+    position: relative;
+    width: 610px;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: gray;
+
+
+    margin-left: 30px;
+    margin-top: 30px;
+    padding: 13px;
+}
+
+.order-options .option-container hr {
+    position: absolute;
+    top: -9px;
+    z-index: 1;
+    width: 90px;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 0.5px;
+    
+}
+.order-options .option-container .option-title {
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    font-style: normal;
+    z-index: 2;
+
+    margin-left: 5px;
+    margin-top: -30px;
+    width: 50px;
+}
+
+
+.order-options .option-container .cream-sugar-zone {
+    width: 130px;
+    height: 35px;
+    background: #E8C5A3;
+    border-radius: 5px;
+    /* margin-top: 40px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    
+    
+}
+
+.order-options .option-container .collection {
+    height: 50px;
+    width: 615px;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.order-options .option-container .cream-sugar-zone p{
+    font-size: 20px;
+    font-weight: 900px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+}
+
+.order-options .option-container .tick {
+    width: 35px;
+    height: 35px;
+    margin-top: 0px;
+
+}
+
+.order-options .option-container button {
+
+    width: 91px;
+    height: 37px;
+    
+    background: #E9E9E9;
+    border-radius: 50px;
+    border-style: none;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.order-options .option-container button:hover {
+    background-color: #E8658C;
+    color: white;
+}
+
+.order-options .cancel-done-container .cancel {
+    width: 180.22px;
+    height: 35px;
+
+    background: #EC5A5A;
+    border-radius: 7.18129px;
+    border-style: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+
+    margin-top: 40px;
+    margin-left: 300px;
+    display: inline;
+}
+
+.order-options .cancel-done-container .done {
+    width: 180.22px;
+    height: 35px;
+
+
+    background: #28B44F;
+    border-radius: 7.18129px;
+    border-style: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline;
+}
+
