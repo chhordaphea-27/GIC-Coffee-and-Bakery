@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+nav{
+    width: 100%;
+    height: 63.5px;
+    background-color:#E8658C;
+
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.2);
+}
+.pf{
+    width: 46%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.pf img{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    border-color: white;
+}
+
+nav .nameAndRole-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-content: flex-start;
+
+    margin-left: 20px;
+}
+
+nav .nameAndRole-container p{
+    color: white;
+
+}
+
+nav .pf #cashierName {
+    font-weight: 700;
+    font-size: 18px;
+
+}
+
+nav span{
+    font-size: 14px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+nav #cashierRole {
+    margin-right: 10px;
+}
+
+nav .middle-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+nav .middle-container .imageConteiner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+    height: 80%;
+
+    margin-right: 40px;
+}
+
+nav .middle-container .imageConteiner .sepretor {
+    border: solid 0.5px white;
+    opacity: 20%;
+
+}
+
+nav .middle-container .imageConteiner a  {
+    position: relative;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+nav .middle-container .imageConteiner a hr  {
+    position: absolute;
+    border: solid 2px white;
+    width: 90px;
+
+    left: -30px;
+    bottom: -14.5px;
+
+}
+
+
+nav .middle-container .imageConteiner a:hover  {
+    opacity: 1;
+}
+
+nav .middle-container .imageConteiner a:hover hr {
+    display: block;
+}
+
+nav .middle-container span #dateAndTime {
+    margin-left: 10px;
+
+    font-size: 16px;
+}
+
+
+.logo{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.main{
+    width: 100%;
+    height: 90%;
+}
