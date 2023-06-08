@@ -23,6 +23,7 @@ iframe {
 .left_main{
     width: 60%;
     height: 100%;
+    margin-top: -50px;
     /* background-color: chartreuse; */
 }
 .left_main .body1{
@@ -81,6 +82,7 @@ iframe {
 .right_main{
     width: 35%;
     height: 100%;
+    margin-top: -50px;
     /* background-color: cadetblue; */
 }
 .right_main .body2{
@@ -152,3 +154,6 @@ iframe {
     margin-top: 200px;
     margin-left: 215px;
 }
+
+
+
