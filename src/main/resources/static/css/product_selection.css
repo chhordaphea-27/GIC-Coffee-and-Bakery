@@ -13,7 +13,7 @@ iframe {
 }
 
 .leftside_drinks {
-    margin-top: -10px;
+    margin-top: -40px;
 }
 /* .categorydrinkfood {
     margin-top: 30px;
@@ -31,7 +31,12 @@ iframe {
     margin-right: 30px;
 }
 
-
+.category_drinkfood {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    row-gap: 10px;
+}
 
 .category_drinkfood button {
     width: 130px;
@@ -47,6 +52,8 @@ iframe {
     color: #000000;
     margin-right: 3px;
     /* margin-left: 5px; */
+
+    
     
 }
 
@@ -68,7 +75,7 @@ iframe {
     margin-left: 10px;
     margin-top: 20px;
     background-color: #E8E8E8;
-    width: 930px;
+    width: 950px;
     height: 650px;  
     padding: 10px;
     border-radius: 10px;

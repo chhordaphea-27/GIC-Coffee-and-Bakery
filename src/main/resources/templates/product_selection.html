@@ -78,26 +78,22 @@
         <div class="categorydrinkfood">
             <div class="category_drinkfood">
                 <p class="title-drinkfood">Drinks</p>
-                <button>Hot</button>
-                <button class="selected-item">Cool</button>
-                <button>Smoothies</button>
-                <button>Frappé</button>
+                <a th:each="aDrinkCategory: ${drinkCategories}" th:href="@{'/product_selection/displayProductFromSelectedCategory?category_id=' + ${aDrinkCategory.getId()}}" method="get">
+                    <button th:text="${aDrinkCategory.getCategoryName()}" >Hot</button>
+                </a>
             </div>
                 
             <div class="category_drinkfood">
                 <p class="title-drinkfood">Foods</p>
-                <button>Cookies</button>
-                <button>Bread</button>
-                <button>Donut</button>
-                <button>Cake</button>
-                <button>Pizza</button>
+                <a th:each="aFoodCategory: ${foodCategories}" th:href="@{'/product_selection/displayProductFromSelectedCategory?category_id=' + ${aFoodCategory.getId()}}" method="get">    
+                    <button th:text="${aFoodCategory.getCategoryName()}" >Cookies</button>
+                </a>     
 
             </div>
         </div>
 
         <div class="drinkselection">
-            
-            <div class="item">
+            <div class="item" th:each="product: ${selectedCate}">
                 <div class="image-container">
                     <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
                     <div class="effect" hidden>
@@ -105,159 +101,47 @@
                     </div>
                 </div>
                 <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
+                    <p class="drinkname" th:text="${product.getProduct().getName()}" >Green Tea</p>
+                    <p class="price" th:text="${product.getSizes().get(0).getPrice()}">$2.5</p>
                 </div>
             </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
+        
 
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
+        <!--
+            <div class="drinkselection" th:switch="${aDrinkCategory.getId()}">
+            <div th:case="'0'">
+                <div class="item" th:each="fooddrink: ${allProduct}">
+                    <div class="image-container">
+                        <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
+                        <div class="effect" hidden>
+                            <button >ADD</button>
+                        </div>
+                    </div>
+                    <div class="nameandprice">
+                        <p class="drinkname" th:text="${fooddrink.getProduct().getName()}" >Green Tea</p>
+                        <p class="price" th:text="${fooddrink.getSizes().get(0).getPrice()}">$2.5</p>
                     </div>
                 </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
             </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
+            <div th:case="*" >
+                <div class="item" th:each="product: ${selectedCate}">
+                    <div class="image-container">
+                        <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
+                        <div class="effect" hidden>
+                            <button >ADD</button>
+                        </div>
+                    </div>
+                    <div class="nameandprice">
+                        <p class="drinkname" th:text="${product.getProduct().getName()}" >Green Tea</p>
+                        <p class="price" th:text="${product.getSizes().get(0).getPrice()}">$2.5</p>
                     </div>
                 </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
             </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
+        -->   
+       
             
             
-            
-            <div class="item">
-                <div class="image-container">
-                    <img src="/static/img/fooddrink/icedgreentealatte.png" alt="">
-                    <div class="effect" hidden>
-                        <button >ADD</button>
-                    </div>
-                </div>
-                <div class="nameandprice">
-                    <p class="drinkname">Green Tea</p>
-                    <p class="price">$2.5</p>
-                </div>
-            </div>
+          
             
             
 

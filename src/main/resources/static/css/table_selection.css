@@ -38,16 +38,21 @@ iframe {
     /* background-color: crimson; */
     margin-left: 40px;
     margin-top: 40px;
-   
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    row-gap: 18px;
+
 }
-.sub_box{
+/* .sub_box{
     width: 100%;
     height: 80px;
-    /* background-color: cornflowerblue; */
+    background-color: cornflowerblue;
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-}
+} */
 .cercle{
     width: 80px;
     height: 80px;
