@@ -19,20 +19,19 @@ public class TableSelectionController {
 	public ModelAndView test(Model model) {
 
 		model.addAttribute("allTable", showAllTable());
-
-
+		model.addAttribute("tableAttr", getEmptyTable());
 		return new ModelAndView("table_selection");
 	}
 
 	@GetMapping("/tableselection/displayTableNumAndStatus")	
 	public ModelAndView handleDataFromView(@RequestParam ("table_id") int table_id, Model model) {
 
-		model.addAttribute("allTable", showAllTable());
-
+		
 		TableManagement tableManagement = new TableManagement();
 		Table table = tableManagement.getTableById(table_id);
+		
+		model.addAttribute("allTable", showAllTable());
 		model.addAttribute("tableAttr", table);
-
 		return new ModelAndView("table_selection");
 	}
 
@@ -40,6 +39,10 @@ public class TableSelectionController {
 	private List<Table> showAllTable() {
 		TableManagement tableManagement = new TableManagement();
 		return tableManagement.getAllTables();
+	}
+
+	private Table getEmptyTable() {
+		return new Table(0, 0, "Unknown");
 	}
 
 

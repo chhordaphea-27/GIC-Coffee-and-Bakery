@@ -8,8 +8,8 @@ import java.util.List;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Category;
 
 public class CategoryManagement extends Management<Category> {
-    private static final String ADD_CATEGORY_QUERY = "INSERT INTO category (category_name, type, image_url) VALUES (?, ?, ?)";
-    private static final String UPDATE_CATEGORY_QUERY = "UPDATE category SET category_name = ?, type = ?, image_url = ? WHERE category_id = ?";
+    private static final String ADD_CATEGORY_QUERY = "INSERT INTO category (category_name, type) VALUES (?, ?, ?)";
+    private static final String UPDATE_CATEGORY_QUERY = "UPDATE category SET category_name = ?, type = ? = ? WHERE category_id = ?";
     private static final String DELETE_CATEGORY_QUERY = "DELETE FROM category WHERE category_id = ?";
     private static final String DISABLE_CATEGORY_QUERY = "UPDATE category SET status = 'Disabled' WHERE category_id = ?";
     private static final String GET_ALL_CATEGORIES_QUERY = "SELECT * FROM category";
@@ -22,7 +22,6 @@ public class CategoryManagement extends Management<Category> {
         category.setId(rs.getInt("category_id"));
         category.setCategoryName(rs.getString("category_name"));
         category.setType(rs.getString("type"));
-        category.setImage_url(rs.getString("image_url"));
         return category;
     }
 
@@ -69,10 +68,9 @@ public class CategoryManagement extends Management<Category> {
     protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Category category) throws SQLException {
         stmt.setString(1, category.getCategoryName());
         stmt.setString(2, category.getType());
-        stmt.setString(3, category.getImage_url());
 
         if (!isAddOperation) {
-            stmt.setInt(4, category.getId());
+            stmt.setInt(3, category.getId());
         }
     }
 }
