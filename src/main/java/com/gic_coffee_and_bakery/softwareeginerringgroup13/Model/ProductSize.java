@@ -4,6 +4,11 @@ public class ProductSize extends Model {
     private Size size;
     private Product product;
     
+    public ProductSize(Size size, Product product) {
+        this.size = size;
+        this.product = product;
+    }
+
     public ProductSize() {
     }
 

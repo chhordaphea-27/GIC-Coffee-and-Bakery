@@ -48,6 +48,12 @@ public class ProductManagement extends Management<Product> {
         update(product, query);
     }
 
+    public void disableProduct(int product_id) {
+
+        String query = "UPDATE product SET description = 'Disable' WHERE product_id = ?";
+        disable(product_id, query);
+    }
+
     public void deleteProduct(int id) {
         String query = "DELETE FROM product WHERE product_id=?";
         delete(id, query);
@@ -55,17 +61,17 @@ public class ProductManagement extends Management<Product> {
 
 
     public List<Product> getAllProducts() {
-        String query = "SELECT * FROM product";
+        String query = "SELECT * FROM product WHERE description <> 'Disable'";
         return getAll(query);
     }
 
     public List<Product> getAllFood() {
-        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id  FROM category WHERE type = 'Food')";
+        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id FROM category WHERE type = 'Food') AND description <> 'Disable'";
         return getAll(query);
     }
 
     public List<Product> getAllDrink() {
-        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id  FROM category WHERE type = 'Drink')";
+        String query = "SELECT * FROM product WHERE category_id IN (SELECT category_id FROM category WHERE type = 'Drink') AND description <> 'Disable'";
         return getAll(query);
     }
 

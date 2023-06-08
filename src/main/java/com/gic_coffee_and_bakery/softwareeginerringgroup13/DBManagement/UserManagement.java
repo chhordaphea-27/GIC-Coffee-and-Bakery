@@ -52,7 +52,7 @@ public class UserManagement extends Management<User> {
     }
 
     public List<User> getAllUsers() {
-        String query = "SELECT * FROM user";
+        String query = "SELECT * FROM user WHERE role <> 'Unavailable' ";
         return getAll(query);
     }
 

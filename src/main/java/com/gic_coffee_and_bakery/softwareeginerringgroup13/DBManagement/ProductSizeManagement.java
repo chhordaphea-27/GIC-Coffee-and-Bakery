@@ -39,7 +39,7 @@ public class ProductSizeManagement extends Management<ProductSize> {
 
     public List<ProductSize> getAllProductSizes() {
         String query = "SELECT * FROM product_size";
-        return super.getAll(query);
+        return getAll(query);
     }
 
     public ProductSize getProductSizeById(int id) {
@@ -49,7 +49,7 @@ public class ProductSizeManagement extends Management<ProductSize> {
 
     public void deleteProductSize(int id) {
         String query = "DELETE FROM product_size WHERE product_size_id = ?";
-        super.delete(id, query);
+        delete(id, query);
     }
 
     private Size getSizeById(int id) {

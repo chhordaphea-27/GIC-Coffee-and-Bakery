@@ -61,26 +61,40 @@ public class ProductSizeListManagement extends ProductSizeManagement {
     public List<ProductSizeList> getProductSizeListByType(String type) {
         ArrayList<ProductSizeList> productSizeLists = new ArrayList<>();
 
-        CategoryManagement categoryManagement = new CategoryManagement();
+        // CategoryManagement categoryManagement = new CategoryManagement();
+        // if (type.equals("Food")) {
+        //     List<Category> foodCates = categoryManagement.getAllFoodCategories();
+        //     for (Category category : foodCates) {
+        //         var productInCate = productManagement.getProductsByCategory(category.getId());
+                
+        //         for (Product product : productInCate) {
+        //             productSizeLists.add(getProductSizeListByProductID(product.getId()));
+        //         }
+        //     }
+        // } else {
+        //     List<Category> foodCates = categoryManagement.getAllDrinkCategories();
+        //     for (Category category : foodCates) {
+        //         var productInCate = productManagement.getProductsByCategory(category.getId());
+                
+        //         for (Product product : productInCate) {
+        //             productSizeLists.add(getProductSizeListByProductID(product.getId()));
+        //         }
+        //     }
+        // } 
+
+        ProductManagement productManagement = new ProductManagement();
+        List<Product> products = new ArrayList<Product>();
+
         if (type.equals("Food")) {
-            List<Category> foodCates = categoryManagement.getAllFoodCategories();
-            for (Category category : foodCates) {
-                var productInCate = productManagement.getProductsByCategory(category.getId());
-                
-                for (Product product : productInCate) {
-                    productSizeLists.add(getProductSizeListByProductID(product.getId()));
-                }
-            }
+            products = productManagement.getAllFood();
         } else {
-            List<Category> foodCates = categoryManagement.getAllDrinkCategories();
-            for (Category category : foodCates) {
-                var productInCate = productManagement.getProductsByCategory(category.getId());
-                
-                for (Product product : productInCate) {
-                    productSizeLists.add(getProductSizeListByProductID(product.getId()));
-                }
-            }
-        } 
+            products = productManagement.getAllDrink();
+            
+        }
+
+        for (Product product : products) {
+            productSizeLists.add(getProductSizeListByProductID(product.getId()));
+        }
         
 
         return productSizeLists;

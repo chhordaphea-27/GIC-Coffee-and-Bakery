@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinks Info</title>
-    <link rel="stylesheet" href="/static/css/foodsinfo.css">
+    
     <link rel="stylesheet" href="/static/css/sidebar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/foodsinfo.css">
+    
 
 
 </head>
@@ -96,28 +98,36 @@
             </div>
         
             <div class="drinkselection">  
-                <button class="add-new-container">
+                <button class="add-new-container" onclick="displayPopupAddUpdate(event, false, null)">
                     <p class="addsign">+</p>
                     <p class="addtext">Add New Food</p>
                 </button>
         
-                <div th:each="food: ${allFood}">
-                    <a class="item" method="get" onclick="showRightSide()" th:href="@{'/foodsinfo/displayFoodInfo?product_id=' + ${food.getProduct().getId()}}">
+                    <a class="item" method="get" th:each="food: ${allFood}" th:href="@{'/foodsinfo/displayFoodInfo?product_id=' + ${food.getProduct().getId()}}">
                         
                         <div class="image-container">
                             <img src="/static/img/foods/icedgreentealatte.png" alt="">
-                            <div class="actionButton" hidden>
-                                <button class="btn" hidden>
+                            <div class="actionButton">
+
+                                <button class="btn" onclick="displayPopupAddUpdate(event, true, this)" th:attr="product_id=${food.getProduct().getId()}, 
+                                                                                                        product_name=${food.getProduct().getName()}, 
+                                                                                                        product_cate=${food.getProduct().getCategory()}, 
+                                                                                                        product_note=${food.getProduct().getDescription()},
+                                                                                                        product_price=${food.getSizes().get(0).getPrice()}, 
+                                                                                                        product_sizeID=${food.getSizes().get(0).getId()}, 
+                                                                                                        product_img=${food.getProduct().getImageUrl()}">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.8107 5.01424L10.3012 2.50424C10.2178 2.42078 10.1187 2.35456 10.0097 2.30939C9.90062 2.26422 9.78374 2.24097 9.66572 2.24097C9.54769 2.24097 9.43082 2.26422 9.32178 2.30939C9.21274 2.35456 9.11366 2.42078 9.03021 2.50424L2.10454 9.43048C2.02073 9.51362 1.95429 9.61259 1.90907 9.72164C1.86385 9.83069 1.84075 9.94765 1.84113 10.0657V12.5757C1.84113 12.814 1.93581 13.0426 2.10433 13.2111C2.27286 13.3797 2.50143 13.4743 2.73977 13.4743H5.24977C5.36782 13.4747 5.48477 13.4516 5.59382 13.4064C5.70287 13.3612 5.80185 13.2947 5.88499 13.2109L12.8107 6.28525C12.8941 6.2018 12.9603 6.10273 13.0055 5.99369C13.0507 5.88465 13.0739 5.76778 13.0739 5.64975C13.0739 5.53172 13.0507 5.41485 13.0055 5.30581C12.9603 5.19677 12.8941 5.09769 12.8107 5.01424ZM5.24977 12.5757H2.73977V10.0657L7.68226 5.1232L10.1923 7.63321L5.24977 12.5757ZM10.8275 6.99742L8.31748 4.48798L9.66544 3.14003L12.1754 5.64947L10.8275 6.99742Z" fill="black"/>
                                     </svg>
                                 </button>
-                                <button class="btn" hidden >
+                                <button class="btn" onclick="displayDeletePopup(event, this)" th:attr="product_id=${food.getProduct().getId()}">
                                     <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.7096 3.58951H2.82456C2.7054 3.58951 2.59111 3.63685 2.50685 3.72111C2.42258 3.80537 2.37524 3.91966 2.37524 4.03883C2.37524 4.15799 2.42258 4.27228 2.50685 4.35654C2.59111 4.4408 2.7054 4.48814 2.82456 4.48814H3.27388V12.5759C3.27388 12.8142 3.36856 13.0428 3.53708 13.2113C3.70561 13.3798 3.93418 13.4745 4.17252 13.4745H11.3616C11.5999 13.4745 11.8285 13.3798 11.997 13.2113C12.1656 13.0428 12.2602 12.8142 12.2602 12.5759V4.48814H12.7096C12.8287 4.48814 12.943 4.4408 13.0273 4.35654C13.1115 4.27228 13.1589 4.15799 13.1589 4.03883C13.1589 3.91966 13.1115 3.80537 13.0273 3.72111C12.943 3.63685 12.8287 3.58951 12.7096 3.58951ZM11.3616 12.5759H4.17252V4.48814H11.3616V12.5759ZM5.07115 2.24155C5.07115 2.12239 5.11849 2.0081 5.20275 1.92384C5.28702 1.83958 5.4013 1.79224 5.52047 1.79224H10.0136C10.1328 1.79224 10.2471 1.83958 10.3314 1.92384C10.4156 2.0081 10.463 2.12239 10.463 2.24155C10.463 2.36072 10.4156 2.47501 10.3314 2.55927C10.2471 2.64353 10.1328 2.69087 10.0136 2.69087H5.52047C5.4013 2.69087 5.28702 2.64353 5.20275 2.55927C5.11849 2.47501 5.07115 2.36072 5.07115 2.24155Z" fill="#C7283C"/>
                                     </svg>
                                 </button>
                             </div>
+                        
+
                             <div class="effect" >
                                 <p class="code" th:text="${food.getProduct().getId()}">GC0001</p>
                             </div>
@@ -127,7 +137,6 @@
                             <p class="price" th:text="'$' + ${food.getSizes().get(0).getPrice()}">$2.5</p>
                         </div>
                     </a>
-                </div>
                 
                 
             </div>
@@ -176,12 +185,13 @@
                     </div>
                 </div> 
     
-                <!-- <div class="info-bottom">
+                 <div class="info-bottom">
                     <div class="details">
                         <p class="boldandcolor">Note</p>
-                        <p id="discription" >Good for person who like High coffee. Good for person who like High coffee and for up te whole night.Good for person who like High coffee and for up te whole night.</p>
+                        <p id="discription" th:text="${detailFood.getProduct().getId()}" >Good for person who like High coffee. Good for person who like High coffee and for up te whole night.Good for person who like High coffee and for up te whole night.</p>
                     </div>
-                </div>  -->
+                </div> 
+            
     
     
     
@@ -190,7 +200,163 @@
 
     </div>
 
+    <div id="popup-background">
+
+        <div class="card">
+            <div class="card-body">
+                <h1>Fill in</h1>
+                <p>
+                    New Food
+                    Information
+                </p>
+                <form method="post" action="/foodsinfo">
+                    <input type="hidden" id="productID" name="productID" value="0"></input>
+                    <input type="hidden" id="sizeID" name="sizeID" value="0"></input>
+
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="mt-3">
+                            <div class="row">
+                                <div class="small-12 medium-2 large-2 columns" >
+                                    <div class="square">
+                                        <img
+                                            class="profile-pic"
+                                            src="profile.PNG"
+                                        />
+                                        <div class="p-image">
+                                            <i
+                                                class="fa fa-camera upload-button"
+                                            ></i>
+                                            <input
+                                                id="imageURL"
+                                                class="file-upload"
+                                                type="file"
+                                                accept="image/*"
+                                                name="imageUrl"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="p2 ">
+                                Food name :
+                                <label for="pp2"><b></b></label>
+                                <input
+                                    id="foodName"
+                                    type="name"
+                                    placeholder=""
+                                    name="name"
+                                    required
+                                />
+                            </div>
+                            <div class="p3 ">
+                                Categories :
+                                <label for="pp3"><b></b></label>
+                                <select name="cateogry" id="categories">
+                                    <option th:each="category: ${foodCategories}" th:value="${category.getId()}" th:text="${category.getCategoryName()}">Hot</option>
+                                </select>
+                            </div>
+                            <div class="p4 ">
+                                Price :
+                                <label for="pp4"><b></b></label>
+                                <input
+                                id="price"
+                                    type="price"
+                                    placeholder=""
+                                    name="price"
+                                    required
+                                />
+                            </div>
+                            <div class="p5 ">
+                                Note :
+                                <label for="pp5"><b></b></label>
+                                <input id="note"
+                                    type="note"
+                                    placeholder=""
+                                    name="note"
+                                    required
+                                />
+                            </div>
+    
+                            <input type="reset" class = "ppp1" name="CANCEL" onclick="closePopupAddUpdate()" />
+                            <input type="submit" class = "ppp2" name="DONE" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+<div id="DeletePopUp">
+    <div class="popup-container" >
+        <h1>Delete Table</h1>
+        <h3>Do you want to delete this <br>table</h3>
+        <div class="done">
+            <form method="post" action="/foodsinfo/deleteProduct">
+                <input type="hidden" name="productID" id="product_id">
+
+                <div class="btn">
+                    <input onclick="closeDeletePopup()" type="reset">
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5843 14.0608C15.6539 14.1304 15.7092 14.2131 15.7469 14.3041C15.7845 14.3951 15.8039 14.4926 15.8039 14.5911C15.8039 14.6896 15.7845 14.7871 15.7469 14.8781C15.7092 14.9691 15.6539 15.0517 15.5843 15.1214C15.5146 15.191 15.432 15.2463 15.341 15.2839C15.25 15.3216 15.1525 15.341 15.054 15.341C14.9555 15.341 14.858 15.3216 14.767 15.2839C14.676 15.2463 14.5933 15.191 14.5237 15.1214L8.30823 8.90497L2.09275 15.1214C1.95211 15.262 1.76136 15.341 1.56246 15.341C1.36356 15.341 1.17281 15.262 1.03217 15.1214C0.891527 14.9807 0.812515 14.79 0.812515 14.5911C0.812515 14.3922 0.891527 14.2014 1.03217 14.0608L7.24858 7.84532L1.03217 1.62985C0.891527 1.48921 0.812515 1.29845 0.812515 1.09956C0.812515 0.900657 0.891527 0.709906 1.03217 0.569263C1.17281 0.428621 1.36356 0.349609 1.56246 0.349609C1.76136 0.349609 1.95211 0.428621 2.09275 0.569263L8.30823 6.78567L14.5237 0.569263C14.6643 0.428621 14.8551 0.349609 15.054 0.349609C15.2529 0.349609 15.4436 0.428621 15.5843 0.569263C15.7249 0.709906 15.8039 0.900657 15.8039 1.09956C15.8039 1.29845 15.7249 1.48921 15.5843 1.62985L9.36787 7.84532L15.5843 14.0608Z" fill="#636363"/>
+                        </svg>
+                        Cancel
+                        
+                    </input>
+                </div>
+                <div class="btn">
+                    <input style="background-color: #E8658C; border: 0px;" type="submit">
+                        <svg width="17" height="17" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.0751 8.13056L10.0851 20.1206C10.0155 20.1902 9.9329 20.2455 9.84192 20.2832C9.75095 20.3209 9.65344 20.3403 9.55496 20.3403C9.45648 20.3403 9.35896 20.3209 9.26799 20.2832C9.17702 20.2455 9.09437 20.1902 9.02477 20.1206L3.77915 14.8749C3.63854 14.7343 3.55954 14.5436 3.55954 14.3448C3.55954 14.1459 3.63854 13.9552 3.77915 13.8146C3.91976 13.674 4.11048 13.595 4.30933 13.595C4.50819 13.595 4.6989 13.674 4.83952 13.8146L9.55496 18.5309L21.0148 7.07019C21.1554 6.92958 21.3461 6.85059 21.545 6.85059C21.7438 6.85059 21.9345 6.92958 22.0751 7.07019C22.2158 7.21081 22.2948 7.40152 22.2948 7.60038C22.2948 7.79923 22.2158 7.98995 22.0751 8.13056Z" fill="white"/>
+                            </svg>
+                            Done
+                        </input>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
     
+
+
+<script>
+    
+    function displayPopupAddUpdate(event, updateMode, data) {
+        event.preventDefault()
+        document.getElementById("popup-background").style.display = 'block';
+
+        if (updateMode) {
+            document.getElementById("productID").value = data.getAttribute("product_id");
+
+            document.getElementById("foodName").value = data.getAttribute("product_name");
+            document.getElementById("categories").value = data.getAttribute("product_cate");
+            document.getElementById("price").value = data.getAttribute("product_price");
+            document.getElementById("note").value = data.getAttribute("product_note");
+            document.getElementById("sizeID").value = data.getAttribute("product_sizeID");
+
+            document.getElementById("imageUrl").src = data.getAttribute("product_img");
+
+        }
+
+    }
+    function closePopupAddUpdate() {
+        document.getElementById("popup-background").style.display = 'none';
+    }
+
+
+    function displayDeletePopup(evet, data) {
+        event.preventDefault()
+
+        document.getElementById("DeletePopUp").style.display = "block";
+
+        document.getElementById("product_id").value = data.getAttribute("product_id");
+    }
+
+    function closeDeletePopup() {
+        document.getElementById("DeletePopUp").style.display = "none";
+
+    }
+</script>
 </body>
 </html>

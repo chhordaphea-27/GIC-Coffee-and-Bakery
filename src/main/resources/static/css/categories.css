@@ -181,6 +181,7 @@
     position: absolute;
     right: 0px;
     top: 0px;
+    display: none;
 
     flex-grow: 2;
 

@@ -425,3 +425,387 @@ body div {
 
 }
 
+
+#cahsierAddUpdatecontainer {
+
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3.5px);
+    display: none;
+    position: fixed;
+
+    font-size: 20px;
+
+    color: #131414;
+    text-align: left;
+    font-family: 'Quicksand';
+}
+
+
+#cahsierAddUpdatecontainer h1 {
+    font-size: 50px;
+    margin-top: 12px;
+}
+
+#cahsierAddUpdatecontainer p {
+    margin-top: -40px;
+}
+
+#cahsierAddUpdatecontainer .card {
+
+    
+    position: relative;
+    left: calc(50% - 1185px/2);
+    top: calc(50% - 500px/2);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: hsl(0, 0.0001%, 95%);
+    background-clip: border-box;
+    border: 0 solid rgba(215, 72, 72, 0.125);
+    border-radius: .25rem;
+    width: 60%;
+    height: 500px;
+    box-shadow: 0 1px 3px 0 rgba(201, 191, 191, 0.1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+  
+#cahsierAddUpdatecontainer .p1 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 10px;
+    background: #E8E8E8;
+    border: 25px solid #E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    color: #0f0d0f;
+    display: flex;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .p2 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 70px;
+    background: #E8E8E8;
+    border: 25px solid #E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .p3 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 130px;
+    background: #E8E8E8;
+    border: 25px solid #E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .p4 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 190px;
+    background: #E8E8E8;
+    border: 25px solid #E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .p5 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 250px;
+    background: #E8E8E8;
+    border: 25px solid#E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .p6 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 350px;
+    top: 310px;
+    background: #E8E8E8;
+    border: 25px solid #E8E8E8;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 55%;
+    height: 20px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  #cahsierAddUpdatecontainer .ppp1 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 460px;
+    top: 440px;
+    background: hsl(358, 47%, 62%);
+    border: 20px solid hsl(358, 47%, 62%);
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    border-radius: 10px;
+    width: 20%;
+    height: 1%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6444px 14.3626px;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  #cahsierAddUpdatecontainer .ppp2 {
+
+    background: hsl(150, 81%, 45%);
+    box-sizing: border-box;
+    position: absolute;
+    top: 440px;
+    left: 800px;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    width: 20%;
+    height: 40px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+
+  
+  #cahsierAddUpdatecontainer input, select {
+    box-sizing: border-box;
+    border: #d167af;
+    position: absolute;
+    left: 200px;
+    top: -28px;
+    background:h#B6B6B6;
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 60%;
+    height: 40px;
+    color: rgb(18, 16, 16);
+    align-items: center;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+    font-size: 20px;
+  }
+  #cahsierAddUpdatecontainer select {
+    height: 40px;
+  }
+
+  #cahsierAddUpdatecontainer .form-btn {
+    box-sizing: border-box;
+    position: absolute;
+
+    top: 440px;
+
+    box-shadow: 0px 1px 3.00064px rgba(178, 24, 144, 0.25);
+    border-radius: 10px;
+    width: 20%;
+    height: 40px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  #cahsierAddUpdatecontainer input[name="submit"] {
+    left: 650px;
+    background: hsl(150, 81%, 45%);
+    border: solid hsl(150, 81%, 45%);
+
+  }
+
+  #cahsierAddUpdatecontainer input[name="cancel"] {
+  
+
+    left: 350px;
+    background: #E8658C;
+    border: solid #E8658C;
+}
+  
+  #cahsierAddUpdatecontainer .profile-pic {
+    width: 300px;
+    max-height: 300px;
+    display: inline-block;
+  }
+  
+  #cahsierAddUpdatecontainer .file-upload {
+    display: none;
+  }
+  
+  #cahsierAddUpdatecontainer .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 110px;
+    left: 30px;
+  }
+  
+  #cahsierAddUpdatecontainer img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .p-image {
+    position: absolute;
+    top: 167px;
+    right: 30px;
+    color: #bd2828a6;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  
+  #cahsierAddUpdatecontainer .p-image:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  
+  #cahsierAddUpdatecontainer .upload-button {
+    font-size: 1.2em;
+  }
+  
+  #cahsierAddUpdatecontainer .upload-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+  }
+
+
+  #DeletePopUp {
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3.5px);
+    display: none;
+    position: fixed;
+
+
+    font-size: 27px;
+    color: #131414;
+    text-align: left;
+    font-family: 'Quicksand';
+}
+
+#DeletePopUp .popup-container{
+    width: 400px;
+    height: 250px;
+    background-color: #FFFFFF;
+    background-color: cornflowerblue;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 7px;
+}
+#DeletePopUp .popup-container h1{
+    text-align: center;
+    padding-top: 10px;
+}
+#DeletePopUp .popup-container h3{
+    text-align: center;
+    margin-top: 35px;
+    
+}
+#DeletePopUp .done{
+    width: 90%;
+    margin: 50px auto;
+    height: 55px;
+    /* background-color: chartreuse; */
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#DeletePopUp .btn{
+    width: 48%;
+    height: 100%;
+    /* background-color: chocolate; */
+    
+}
+#DeletePopUp button{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 230, 225);
+    border: 0px;
+    justify-content: space-between;
+    border: 1.23684px solid #636363;
+    border-radius: 9.89472px; 
+    cursor: pointer;
+}
+#DeletePopUp .btn span{
+    font-size: 17px;
+    padding-left: 5px;
+}
