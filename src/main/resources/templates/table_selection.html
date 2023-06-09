@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/table_selection.css">
     <link rel="stylesheet" href="/static/css/navigationbar.css">
-    <title>Document</title>
+    <title>Table Selection - Cashire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             <img src="static/img/addcashier/profile.png" alt="">
 
             <div class="nameAndRole-container">
-                <p id="cashierName">Moewie Ger</p>
+                <p id="cashierName" th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}">Moewie Ger</p>
                 <span>
                     <p id="cashierRole">Log Out</p> 
                     <svg width="14" height="14" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +80,7 @@
 
                 <div class="footer">
                     <div class="tex">
+                        <input type="hidden" id="tableID" th:value="${tableAttr.getId()}">
                         <h3>Table: 
                             <span th:text="${tableAttr.getTableNumber()}" style="color: #E8658C; padding-left: 27px;" id="tableNumber">08</span>
                         </h3>
@@ -88,7 +89,7 @@
                         </h3>
                     </div>
                     <div class="botton">
-                        <button onclick="gotoNextRoute()">SELECT AND CONTINUE</button>
+                        <a th:href="@{'/tableselection/tablesubmission?tableID=' + ${tableAttr.getId()}}">SELECT AND CONTINUE</a>
                     </div>
                 </div>
             </div>
@@ -167,14 +168,15 @@
 
 
 
-        function gotoNextRoute() {
-            const tableNumber = document.getElementById("tableNumber").innerHTML;
-            const tableStatus = document.getElementById("tableStatus").innerHTML;
-
-            if (tableNumber > 0 && tableStatus == "Available") {
-                window.location = "/product_selection";
-            }
-        }
+        // function gotoNextRoute() {
+        //     const tableNumber = document.getElementById("tableNumber").innerHTML;
+        //     const tableStatus = document.getElementById("tableStatus").innerHTML;
+        //     conse tableID = document.getElementById("tableID");
+// 
+        //     if (tableNumber > 0 && tableStatus == "Available") {
+        //         window.location.href = `/product_selection?tableID=${tableID.value}`;
+        //     }
+        // }
     </script>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class OrderManagement extends Management<Order> {
         Order order = new Order();
         order.setId(rs.getInt("order_id"));
         order.setUser(getUserByID(rs.getInt("user_id")));
-        order.setDateCreated(rs.getDate("date_created"));
+        order.setDateCreated(rs.getTimestamp("date_created"));
         order.setStatus(rs.getString("status"));
         order.setTable(getTableById(rs.getInt("table_id")));
         order.setTotalPrice(rs.getDouble("total_price"));
@@ -36,7 +36,7 @@ public class OrderManagement extends Management<Order> {
     protected void setStatementParams(Boolean isAddOperation, PreparedStatement stmt, Order order) throws SQLException {
         // Set the statement parameters based on the order properties
         stmt.setInt(1, order.getUser().getId());
-        stmt.setDate(2, order.getDateCreated());
+        stmt.setTimestamp(2, order.getDateCreated());
         stmt.setString(3, order.getStatus());
         stmt.setInt(4, order.getTable().getId());
         stmt.setDouble(5, order.getTotalPrice());

@@ -33,9 +33,9 @@
             <img src="static/img/addcashier/profile.png" alt="">
 
             <div class="nameAndRole-container">
-                <p id="cashierName">Moewie Ger</p>
+                <p id="cashierName" th:text="${orderItemList.getOrder().getUser().getFirstName()} + ' ' + ${orderItemList.getOrder().getUser().getLastName()}">Moewie Ger</p>
                 <span>
-                    <p id="cashierRole">Log Out</p> 
+                    <p id="cashierRole" th:text="${orderItemList.getOrder().getUser().getRole()}">Log Out</p> 
                     <svg width="14" height="14" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.74971 20.125C8.74971 20.3571 8.65753 20.5796 8.49344 20.7437C8.32935 20.9078 8.1068 21 7.87474 21H1.74994C1.28583 21 0.840724 20.8156 0.512546 20.4874C0.184368 20.1592 0 19.7141 0 19.25V1.75C0 1.28587 0.184368 0.840752 0.512546 0.512563C0.840724 0.184374 1.28583 0 1.74994 0H7.87474C8.1068 0 8.32935 0.0921874 8.49344 0.256282C8.65753 0.420376 8.74971 0.642936 8.74971 0.875C8.74971 1.10706 8.65753 1.32962 8.49344 1.49372C8.32935 1.65781 8.1068 1.75 7.87474 1.75H1.74994V19.25H7.87474C8.1068 19.25 8.32935 19.3422 8.49344 19.5063C8.65753 19.6704 8.74971 19.8929 8.74971 20.125ZM20.7434 9.88094L16.3685 5.50594C16.2043 5.34175 15.9817 5.24951 15.7495 5.24951C15.5173 5.24951 15.2946 5.34175 15.1304 5.50594C14.9663 5.67012 14.874 5.89281 14.874 6.125C14.874 6.35719 14.9663 6.57988 15.1304 6.74406L18.0124 9.625H7.87474C7.64269 9.625 7.42013 9.71719 7.25604 9.88128C7.09196 10.0454 6.99977 10.2679 6.99977 10.5C6.99977 10.7321 7.09196 10.9546 7.25604 11.1187C7.42013 11.2828 7.64269 11.375 7.87474 11.375H18.0124L15.1304 14.2559C14.9663 14.4201 14.874 14.6428 14.874 14.875C14.874 15.1072 14.9663 15.3299 15.1304 15.4941C15.2946 15.6582 15.5173 15.7505 15.7495 15.7505C15.9817 15.7505 16.2043 15.6582 16.3685 15.4941L20.7434 11.1191C20.8247 11.0378 20.8893 10.9413 20.9333 10.8351C20.9773 10.7288 21 10.615 21 10.5C21 10.385 20.9773 10.2712 20.9333 10.1649C20.8893 10.0587 20.8247 9.9622 20.7434 9.88094Z" fill="white"/>
                     </svg>
@@ -76,7 +76,7 @@
                     <path d="M14.9908 1.78553H14.1579V0.0820312H12.4923V1.78553H4.1641V0.0820312H2.49846V1.78553H1.66564C0.749538 1.78553 0 2.5521 0 3.48902V17.117C0 18.0539 0.749538 18.8205 1.66564 18.8205H14.9908C15.9069 18.8205 16.6564 18.0539 16.6564 17.117V3.48902C16.6564 2.5521 15.9069 1.78553 14.9908 1.78553ZM14.9908 17.117H1.66564V7.74777H14.9908V17.117ZM14.9908 6.04427H1.66564V3.48902H14.9908V6.04427Z" fill="white"/>
                 </svg> 
                 
-                <p id="dateAndTime">date and Time</p>
+                <p id="dateAndTime" >date and Time</p>
             </span>
         </div>
 
@@ -374,13 +374,13 @@
                     <div class="con flex justify-between">
                         <div>Cashier :</div>
                         <div>
-                            <span class="font-semibold">Sek Sambo</span>
+                            <span class="font-semibold" th:text="${orderItemList.getOrder().getUser().getFirstName()} + ' ' + ${orderItemList.getOrder().getUser().getLastName()}">Sek Sambo</span>
                         </div>
                     </div>
                     <div class="con flex justify-between">
                         <div>T-In :</div> 
                         <div>
-                            <span class="font-semibold">29/05/23</span>
+                            <span class="font-semibold" th:text="${orderItemList.getOrder().getDateCreated()}">29/05/23</span>
                         </div>
                     </div>
                     <div class="con flex justify-between">
@@ -395,13 +395,13 @@
                     <div class="con flex justify-between">
                         <div> Table :</div> 
                         <div>
-                            <span class="font-semibold">08</span>
+                            <span class="font-semibold" th:text="${orderItemList.getOrder().getTable().getTableNumber()}">08</span>
                         </div>
                     </div>
                     <div class="con flex justify-between">
                         <div>T-Out :</div>
                         <div>
-                            <span class="font-semibold">29/05/23</span>
+                            <span class="font-semibold" th:text="${orderItemList.getOrder().getDateCreated()}">29/05/23</span>
                         </div>
                     </div>
                     <div class="con flex justify-between">
@@ -421,34 +421,29 @@
             </div>
             <div class="line w-[100%] border-[1px] border-solid border-gray-600 "></div>
             <div class="sub-con py- ">
-                <div class="flex justify-between">
-                    <div class="con">Apple Carrot</div>
-                    <div class="con">Regular 1</div>
-                    <div class="con">2.95</div>
-                    <div class="con">2.95</div>
+                <div class="flex justify-between" th:each="orderitem: ${orderItemslist}">
+                    <div class="con" th:text="${orderItem.getProductSize().getProduct().getName()}">Apple Carrot</div>
+                    <div class="con" th:text="${orderItem.getProductSize().getSize().getSizeName()} + ${orderItem.setQuantity()}">Regular 1</div>
+                    <div class="con" th:text="${orderItem.getProductSize().getSize().getPrice()}">2.95</div>
+                    <div class="con" th:text="${orderItem.getProductSize().getSize().getPrice() * orderItem.setQuantity()}">2.95</div>
                 </div>
-                <div class="flex justify-between">
-                    <div class="con">Apple Carrot</div>
-                    <div class="con">Regular 1</div>
-                    <div class="con">2.95</div>
-                    <div class="con">2.95</div>
-                </div>
+
             </div>
             <div class="line w-[100%] border-[1px] border-solid border-gray-600 "></div>
             <div class="w-full flex justify-end">
                 <div class="py-3 w-[70%] h-fit  justify-end">
                     <div class="sub_total flex justify-between">
                         <p class="font-semibold">Sub Total</p>
-                        <p><span class="font-bold" >5.35</span></p>
+                        <p><span class="font-bold" th:text="{orderItemList.getOrder().getTotalPrice()}">5.35</span></p>
                     </div>
                     <div class="line w-[100%] border-[1px] border-solid border-gray-600 "></div>
                     <div class="grand_totals flex justify-between">
                         <p class="font-semibold">Grand Total($)</p>
-                        <p><span class="font-bold" >5.35</span></p>
+                        <p><span class="font-bold" th:text="{orderItemList.getOrder().getTotalPrice()}">5.35</span></p>
                     </div>
                     <div class="grand_totalr flex justify-between">
                         <p class="font-semibold">Grand Total(R)</p>
-                        <p><span class="font-bold" >21,700</span></p>
+                        <p><span class="font-bold" th:text="{orderItemList.getOrder().getTotalPrice() * 4000}">21,700</span></p>
                     </div>
                     <div class="line w-[100%] border-[1px] border-solid border-gray-600 "></div>
                     <div class="space py-3"></div>
