@@ -49,7 +49,6 @@ public class TableManagementController {
 	}
 
 
-
 	private List<Table> displayTable(){
 		TableManagement tableManagement = new TableManagement();
 		return tableManagement.getAllTables();

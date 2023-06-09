@@ -10,15 +10,15 @@ iframe {
 .main{
     display: flex;
     margin-top: 30px;
+
 }
 
 .leftside_drinks {
     margin-top: -40px;
+    width: 50%;
 }
-/* .categorydrinkfood {
-    margin-top: 30px;
-    overflow-y: auto;
-} */
+
+
 
 .title-drinkfood {
     font-style: normal;
@@ -76,7 +76,7 @@ iframe {
     margin-top: 20px;
     background-color: #E8E8E8;
     width: 950px;
-    height: 650px;  
+    height: 100%;  
     padding: 10px;
     border-radius: 10px;
     overflow-y: auto;
@@ -182,6 +182,7 @@ iframe {
     margin-top: 70px;
     width: 100%;
     height: 80px;
+    flex-direction: column;
     /* background-color: cornflowerblue; */
 }
 .footer .tex{
@@ -214,7 +215,8 @@ iframe {
     margin: auto;
     height: 50px;
     padding-top: 10px;
-    background-color: cornflowerblue;
+    display: flex;
+    justify-content: left;
 }
 .order{
     display: flex;
@@ -237,4 +239,43 @@ iframe {
     /* background-color: cyan; */
     margin-top: 200px;
     margin-left: 215px;
+}
+
+
+
+
+.popupBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Option Dialog Popup */
+#order-wrapper {
+    display: none;
+}
+
+.order-options {
+    position: relative;
+    left: calc(50% - 700px/2);
+    top: calc(50% - 465px/2);
+
+}
+
+
+    /* PAYMENT */
+
+#payamount-wrapper {
+    display: none;
+}
+.right_main {
+    position: relative;
+
+    left: calc(50% - 672px/2);
+    top: calc(50% - 896px/2);
+
 }

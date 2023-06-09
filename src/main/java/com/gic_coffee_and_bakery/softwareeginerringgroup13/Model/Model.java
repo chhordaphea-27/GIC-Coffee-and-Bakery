@@ -1,5 +1,7 @@
 package com.gic_coffee_and_bakery.softwareeginerringgroup13.Model;
 
+import com.google.gson.Gson;
+
 public class Model {
     private int id;
 
@@ -16,6 +18,12 @@ public class Model {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
     
 }

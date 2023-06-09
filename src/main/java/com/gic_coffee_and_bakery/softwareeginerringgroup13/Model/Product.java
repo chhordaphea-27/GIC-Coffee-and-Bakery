@@ -60,5 +60,8 @@ public class Product extends Model {
     public void setLastOrder(Date lastOrder) {
         this.lastOrder = lastOrder;
     }
+
+
+    
     
 }

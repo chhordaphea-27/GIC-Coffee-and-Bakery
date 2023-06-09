@@ -1,0 +1,80 @@
+
+/* ///////////////////////// */
+.right_main{
+
+
+    width: 672px;
+    height: 896px;
+
+
+    margin-left: 100px;
+}
+.right_main .body2{
+    width: 78%;
+    height: 600px;
+    background-color: white;
+    margin:80px;
+    margin-top: 120px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+/* //////////////////////////////// */
+
+.right_main .body2 h2{
+    text-align: center;
+    padding: 10px;
+    color: #E8658C;
+}
+.right_main .body2 h4{
+    padding: 20px;
+}
+/* //////////////////////////////// */
+.right_main .method{
+    width: 90%;
+    height: 40px;
+    /* background-color: burlywood; */
+    margin: auto;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #E8658C;
+}
+/* ///////////////////////////////// */
+.right_main .amount{
+    margin-top: 40px;
+}
+.right_main .sub_amount h3{
+    text-align: center;
+}
+.right_main .amount input {
+    text-align: center;
+    width: 90%;
+    border-radius: 40px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 25px;
+
+    border: 0.5px solid #848484;
+}
+
+/* .amount input:hover, .amount input:focus {
+    border: 1px solid #E8658C;
+} */
+/* ///////////////////////////// */
+.right_main .footer{
+    margin-top: 130px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.right_main .footer span{
+    margin-left: 300px;
+}
+.right_main .footer button{
+    width: 95%;
+    background-color: #33ed68;
+    height: 40px;
+    margin-top: 55px;
+    border-radius:  7px;
+    color: white;
+    border: 0px;
+}

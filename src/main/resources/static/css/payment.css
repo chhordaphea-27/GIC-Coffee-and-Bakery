@@ -1,23 +1,4 @@
-iframe {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-}
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Quicksand';
-}
-
-.main{
-    width: 100%;
-    height: auto;
-    /* background-color: gray; */
-    display: flex;
-}
 /* /////////////////////////////// */
 .left_main{
     width: 55%;
@@ -168,16 +149,16 @@ iframe {
 }
 /* //////////////////////////////// */
 
-.body2 h2{
+.right_main .body2 h2{
     text-align: center;
     padding: 10px;
     color: #E8658C;
 }
-.body2 h4{
+.right_main .body2 h4{
     padding: 20px;
 }
 /* //////////////////////////////// */
-.method{
+.right_main .method{
     width: 90%;
     height: 40px;
     /* background-color: burlywood; */
@@ -187,13 +168,13 @@ iframe {
     background-color: #E8658C;
 }
 /* ///////////////////////////////// */
-.amount{
+.right_main .amount{
     margin-top: 40px;
 }
-.sub_amount h3{
+.right_main .sub_amount h3{
     text-align: center;
 }
-.amount input {
+.right_main .amount input {
     text-align: center;
     width: 90%;
     border-radius: 40px;
@@ -208,14 +189,14 @@ iframe {
     border: 1px solid #E8658C;
 } */
 /* ///////////////////////////// */
-.footer{
+.right_main .footer{
     margin-top: 130px;
     padding-left: 20px;
 }
-.footer span{
+.right_main .footer span{
     margin-left: 300px;
 }
-.footer button{
+.right_main .footer button{
     width: 95%;
     background-color: #33ed68;
     height: 40px;

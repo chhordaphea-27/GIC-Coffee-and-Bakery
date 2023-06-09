@@ -8,7 +8,13 @@
     background-color: #F1F1F1;
     border-radius: 15px;
     box-shadow: 0px 0px 14.5666px 2.91331px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
     /* padding: 20px; */
+}
+
+.order-options select {
+    font-size: 20px;
+
 }
 
 .order-options .header {
@@ -33,7 +39,7 @@
 .order-options .size-container {
     position: relative;
     width: 250px;
-    height: auto;
+    height: 50px;
     background-color: white;
     border-radius: 5px;
     border-style: solid;
@@ -43,7 +49,11 @@
 
     margin-left: 30px;
     margin-top: 30px;
-    padding: 13px;
+    /* padding: 13px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .order-options .size-container p {
@@ -56,7 +66,7 @@
     z-index: 2;
 
     margin-left: 5px;
-    margin-top: -30px;
+    margin-top: -60px;
     width: 50px;
 }
 .order-options .size-container hr {
@@ -109,6 +119,10 @@
     border-width: 0.5px;
     border-color: gray;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     margin-left: 30px;
     margin-top: 30px;
@@ -151,17 +165,30 @@
     justify-content: center;
     align-items: center;
 
-    
-    
+}
+.order-options #sizeSelection {
+
+    width: 80%;
+    height: 80%;
+
     
 }
 
+.order-options #sugarSelection {
+    margin-left: 20PX;
+    width: 40%;
+    height: 35px;
+}
+
+
 .order-options .option-container .collection {
     height: 50px;
-    width: 615px;
+    width: 95%;
+    margin: auto;
 
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     gap: 10px;
 }
 
@@ -173,10 +200,14 @@
     font-weight: 600;
 }
 
-.order-options .option-container .tick {
+.order-options .option-container input.tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
     width: 35px;
     height: 35px;
-    margin-top: 0px;
+    margin-top: 10px;
 
 }
 
@@ -193,10 +224,7 @@
     font-weight: 500;
 }
 
-.order-options .option-container button:hover {
-    background-color: #E8658C;
-    color: white;
-}
+
 
 .order-options .cancel-done-container .cancel {
     width: 180.22px;
@@ -227,4 +255,8 @@
     font-weight: 500;
     display: inline;
 }
+
+
+
+
 
