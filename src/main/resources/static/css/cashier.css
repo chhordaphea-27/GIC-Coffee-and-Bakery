@@ -43,7 +43,7 @@ body div {
 
 .right-side {
     /* width: 39%;  */
-    /* width: 30%; */
+    width: 44%;
     height: auto;    
     margin-top: 20px;
     margin-left: 15px;
@@ -765,19 +765,26 @@ body div {
     width: 400px;
     height: 250px;
     background-color: #FFFFFF;
-    background-color: cornflowerblue;
+   
     margin: auto;
     margin-top: 100px;
     border-radius: 7px;
+
+    
 }
+
+
+
 #DeletePopUp .popup-container h1{
     text-align: center;
     padding-top: 10px;
+    font-size: 40px;
 }
 #DeletePopUp .popup-container h3{
     text-align: center;
     margin-top: 35px;
-    
+    font-size: 20px;
+    font-weight: 300px;
 }
 #DeletePopUp .done{
     width: 90%;

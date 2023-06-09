@@ -86,11 +86,12 @@
         <div class="left-side">
             <div class="left-header">
                 <h1 class="title">Drinks</h1>
-
+<!--
                 <form class="searchbar">
                     <input type="search" placeholder="Search...">
                     <button type="submit">Search</button>
                 </form>
+-->
 
             </div>
         
@@ -102,7 +103,7 @@
         
                 <a th:each="drink: ${alldrink}" class="item" method="get" th:href="@{'/drinksinfo/displayDrinksInfo?product_id=' + ${drink.getProduct().getId()}}">
                     <div class="image-container">
-                        <img src="/static/img/drinks/icedgreentealatte.png" alt="">
+                        <img src="/static/img/drinks/drink2.png" alt="">
                         <div class="actionButton" hidden>
                             <button class="btn" hidden>
                                 <svg hidden width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,15 +132,15 @@
             </div>
         </div>
 
-        <div  th:switch="${detailDrink.getProduct().getId()}" style="padding-left: 10px; padding-right: 10px;">
+        <div class="right-side" th:switch="${detailDrink.getProduct().getId()}" style="padding-left: 10px; padding-right: 10px;">
             <div th:case="'0'"></div>
-            <div th:case="*" class="right-side">
+            <div th:case="*" >
                 <div class="drinkinfo-header">
                     <h1 class="text"> Drink Information </h1>
                 </div>
     
                 <div class="imageProduct-container"> 
-                    <img src="/static/img/drinks/img3.jpg" alt="">
+                    <img src="/static/img/drinks/drink2.png" alt="">
                 </div>
     
                 <div class="info-right">

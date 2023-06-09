@@ -24,14 +24,18 @@ body div {
 }
 
 .left-side {
-    width: 59%; 
+    width: 56%; 
     height: auto;
+
 }
 
 .right-side {
-    width: 100%; 
-    height: auto;  
-    margin-left: 15px;  
+    /* width: 39%;  */
+    width: 43%;
+    height: auto;    
+    margin-top: 20px;
+    margin-left: 15px;
+
 
 
 }
@@ -840,7 +844,7 @@ margin-bottom: 0px;
     width: 400px;
     height: 250px;
     background-color: #FFFFFF;
-    background-color: cornflowerblue;
+
     margin: auto;
     margin-top: 100px;
     border-radius: 7px;
@@ -848,10 +852,13 @@ margin-bottom: 0px;
 #DeletePopUp .popup-container h1{
     text-align: center;
     padding-top: 10px;
+    font-size: 40px;
 }
 #DeletePopUp .popup-container h3{
     text-align: center;
     margin-top: 35px;
+    font-size: 20px;
+    font-weight: 300px;
     
 }
 #DeletePopUp .done{

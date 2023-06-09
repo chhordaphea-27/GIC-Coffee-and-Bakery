@@ -88,7 +88,7 @@
         <div class="left-side">
             <div class="left-header">
                 <h1 class="title">Categories</h1>
-                <hr>
+                
             </div>
         
             <div class="drinkselection">
@@ -101,7 +101,7 @@
     
                     <a class="anotheritem" th:each="categoryDrink: ${allCategoryDrink}" th:href="@{'/categories/displayDrinks?category_id=' + ${categoryDrink.getId()}}" method="get" >
                         <div class="img-container">
-                            <img src="/static/img/categories/icedgreentealatte.png" alt="">
+                            <img src="/static/img/categories/categorydrink.png" alt="">
                             
                             <div class="actionButton" hidden>
                                 <button class="btn" hidden onclick="openCatePopup(event, false, 'Drink', this)"
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="nameandprice">
-                            <p class="drinktype" th:text="${categoryDrink.getCategoryName()}">Hot Drinks</p>
+                            <p class="drinktype" th:text="${categoryDrink.getCategoryName()}">Products</p>
                            
                         </div>
                     </a>  
@@ -144,7 +144,7 @@
 
                     <a class="anotheritem" th:each="categoryFood: ${allCategoryFood}" th:href="@{'/categories/displayFoods?category_id=' + ${categoryFood.getId()}}" method="get">
                         <div class="img-container">
-                            <img src="/static/img/categories/icedgreentealatte.png" alt="">
+                            <img src="/static/img/categories/categoryfood.png" alt="">
                             
                             <div class="actionButton" hidden>
                                 <button class="btn" hidden onclick="openCatePopup(event, false, 'Food', this)"
@@ -179,11 +179,8 @@
     
         <div class="right-side">
             <div class="drinkinfo-header">
-                <h1 class="text" >Hot Drinks </h1>
-                <div class="quantity">
-                    <h1 id="numOfDrinkFood">9</h1>
-                    <p class="result">results</p>
-                </div>
+                <h1 class="text" >All Products </h1>
+                
             </div>
     
             <div class="drinkfood-clicked">
@@ -191,7 +188,7 @@
 
                     <div class="anotheritem" th:each="product: ${selectedCate}">
                         <div class="img-container">
-                            <img src="/static/img/categories/icedgreentealatte.png" alt="">
+                            <img src="/static/img/categories/categoryfood.png" alt="">
 
                             <div class="effect" >
                                 <p class="code" th:text="${product.getProduct().getId()}">GC0001</p>
@@ -324,7 +321,7 @@
             
             document.getElementById("cate_id").value = data.getAttribute("cate_id")
 
-            document.getElementById("title").innerHTML = "Delete Catgory";
+            document.getElementById("title").innerHTML = "Delete Category";
             document.getElementById("message").innerHTML = `Do you want to delete ${data.getAttribute("cate_name")}? `
             
             console.log("document.getElementById('usrID'): ", document.getElementById("cate_id"))

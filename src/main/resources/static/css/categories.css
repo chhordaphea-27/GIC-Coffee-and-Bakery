@@ -151,7 +151,7 @@
 .item .type {
     font-style: normal;
     font-weight:700;
-    font-size: 20px;
+    font-size: 18px;
     color: black;  
 }
 
@@ -169,10 +169,12 @@
 
 .item .drinkname {
     display: inline;
+   
 }
 
 .item .price {
     display: inline;
+ 
 
 }
 
@@ -345,7 +347,7 @@
 .anotheritem .code {
     font-style: normal;
     font-weight:700;
-    font-size: 18px;
+    font-size: 14px;
     color: black;  
 }
 
@@ -372,6 +374,7 @@
     /* display: inline; */
     text-align: center;
     width: 100%;
+    font-size: 18px;
 
 }
 
@@ -545,7 +548,7 @@
     width: 400px;
     height: 250px;
     background-color: #FFFFFF;
-    background-color: cornflowerblue;
+
     margin: auto;
     margin-top: 100px;
     border-radius: 7px;
@@ -553,10 +556,15 @@
 #DeletePopUp .popup-container h1{
     text-align: center;
     padding-top: 10px;
+    font-size: 40px;
+
+    
 }
 #DeletePopUp .popup-container h3{
     text-align: center;
     margin-top: 35px;
+    font-size: 20px;
+    font-weight: 300px;
     
 }
 #DeletePopUp .done{
