@@ -10,6 +10,8 @@ iframe {
 .main{
     display: flex;
     margin-top: 30px;
+    align-items: stretch;
+    justify-content: space-between;
 
 }
 
@@ -203,9 +205,9 @@ iframe {
     /* background-color: cyan; */
 }
 .footer button{
-    margin-left: 30px;
     margin-top: 20px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 7px;
     box-shadow: 2px 5px #0c0808;
     background-color: #28B44F;

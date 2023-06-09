@@ -107,14 +107,19 @@
 }
 
 .left-side .drinkselection .onlydrinkSelection {
-    width: calc(100% - 170px)
+    width: calc(100% - 170px);
     /* width: auto; */
    
-    /* height: 180px;
-    overflow-y: auto; */
+    height: 380px;
+    overflow-y: auto;
 }
 
-
+.left-side div:nth-child(3) .onlydrinkSelection {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-self: center;
+}
 
 .item {
     width: 160px;
@@ -302,6 +307,7 @@
 }
 .right-side .drinkfood-clicked .onlydrinkSelection {
     width: 100%;
+    
 }
 
 .right-side .drinkfood-clicked .anotheritem {

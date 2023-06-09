@@ -154,6 +154,26 @@ public class ProductSelectionController {
 		return new ModelAndView("redirect:/reciepts");
 	}
 
+	@GetMapping("/product_selection/cancelOrder")
+	public ModelAndView cancelOrderAndView(Model model) {
+		
+		OrderItemListManagement orderItemListManagement = new OrderItemListManagement();
+		orderItemListManagement.deleteAllDataOrderItemList(orderAndItemList);
+		orderAndItemList= null;
+
+
+	if (selectedCate == null) {
+		model.addAttribute("selectedCate", getAllProduct());
+	} else {
+		model.addAttribute("selectedCate", getProductByCategory(selectedCate.getId()));
+	}
+	model.addAttribute("tableSelection", tableSelected);
+	model.addAttribute("drinkCategories", getAllCategoriesOfDrink());
+	model.addAttribute("foodCategories", getAllCategoriesOfFood());
+	model.addAttribute("user", user);
+	return new ModelAndView("redirect:/product_selection");
+	}
+
 	private List<Category> getAllCategoriesOfDrink() {
 		CategoryManagement categoryManagement = new CategoryManagement();
 		return categoryManagement.getAllDrinkCategories();

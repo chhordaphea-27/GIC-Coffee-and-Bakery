@@ -135,13 +135,13 @@
 
             </div>
     
-            <div class="drinkselection">
+            <div class="drinkselection" style="height: 320px;">
                 <button class="add-new-container" onclick="openCatePopup(event, true, 'Food', this)">
                     <p class="addsign">+</p>
                     <p class="addtext">Add New Food Category</p>
                 </button>
         
-                <div class="onlydrinkSelection">
+                <div class="onlydrinkSelection" style="height: 320px; overflow: hidden">
 
                     <a class="anotheritem" th:each="categoryFood: ${allCategoryFood}" th:href="@{'/categories/displayFoods?category_id=' + ${categoryFood.getId()}}" method="get">
                         <div class="img-container">

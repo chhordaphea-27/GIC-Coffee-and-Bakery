@@ -155,7 +155,7 @@
                     <hr style="width: 460px; border-top: 1px dashed rgb(126, 125, 125);">
             
                     
-                    <div th:switch="${orderAndItemList.getOrder().getId()}">
+                    <div th:switch="${orderAndItemList.getOrder().getId()}" style="height: 440px; overflow-y: auto;">
                         <div th:case="0"></div>
                         <div th:case="*">
                             <div class="box" th:each="orderItem: ${orderAndItemList.getOrderItemList()}">
@@ -198,7 +198,7 @@
                     <p style="color: gray; margin-top: 5px;">CHANGE<span>$ 00.00</span></p>
             </div>
             <div class="button">
-                <div class="button_cancel"><button>CANCEL ORDER</button></div>
+                <div class="button_cancel"><button onclick="window.location.href='/product_selection/cancelOrder';">CANCEL ORDER</button></div>
                 <div class="button_order"><button onclick="displayPayment(event, this)" th:attr="data-orderAndItemList=${orderAndItemList.getOrder().toJson()}">SEND ORDER</button></div>
             </div>
         </div>

@@ -134,7 +134,6 @@ body div {
     margin-top: 0px;
     background-color: #E8E8E8;
     width: 98%;
-    height: auto;
     padding: 10px;
     border-radius: 15px;
 
@@ -143,6 +142,8 @@ body div {
     justify-content: flex-start;
     align-content: flex-start;
     gap: 10px;
+
+    height: 700px;  
     overflow-y: auto;
 
 }
@@ -394,11 +395,12 @@ body div {
     position: fixed;
 
 
-    font-size: 27px;
+    font-size: 18px;
     color: #131414;
     text-align: left;
     font-family: 'Quicksand';
 }
+
 
 #popup-background .card {
     position: absolute;
