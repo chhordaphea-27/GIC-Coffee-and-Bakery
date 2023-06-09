@@ -13,7 +13,7 @@ import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.OrderAndItemLis
 public class RecieptsController {
 
 	private OrderAndItemList orderAndItemList = null;
-
+	
 
     @GetMapping("/reciepts")	
 	public ModelAndView test(Model model) {

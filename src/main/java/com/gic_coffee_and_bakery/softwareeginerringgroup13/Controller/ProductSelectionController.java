@@ -24,13 +24,15 @@ public class ProductSelectionController {
 	UserManagement userManagement = new UserManagement();
 	TableManagement tableManagement = new TableManagement();
 
-	private Table tableSelected;
-	private User user;
+	User user = getUserById(12);
+	Table tableSelected = getTableById(12);
+
 	private OrderAndItemList orderAndItemList = null;
 
 	private Category selectedCate;
 	
 	
+
 	@GetMapping("/product_selection")	
 	public ModelAndView displayProductPage(Model model) {
 		
@@ -210,6 +212,11 @@ public class ProductSelectionController {
 
 		return orderAndItemList;
 
+	}
+
+	private User getUserById(int table_id) {
+		UserManagement userManagement = new UserManagement();
+		return userManagement.getUserById(table_id);
 	}
 
 }

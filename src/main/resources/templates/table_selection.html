@@ -76,7 +76,7 @@
         <div class="left_main">
             <div class="body1">
                 <div class="box" >
-                    <a class="cercle" th:each="table: ${allTable}" th:href="@{'/tableselection/displayTableNumAndStatus?table_id=' + ${table.getId()}}" method="get">
+                    <a class="cercle" style="text-decoration: none;" th:each="table: ${allTable}" th:href="@{'/tableselection/displayTableNumAndStatus?table_id=' + ${table.getId()}}" method="get">
                         <p th:text="${table.getTableNumber()}">01</p>
                     </a>                   
                 </div>

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.TableManagement;
+import com.gic_coffee_and_bakery.softwareeginerringgroup13.DBManagement.UserManagement;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.Table;
 import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.User;
 
@@ -18,7 +19,7 @@ import com.gic_coffee_and_bakery.softwareeginerringgroup13.Model.User;
 @Controller
 public class TableSelectionController {
 
-	User user;
+	User user = getUserById(12);
 
     @GetMapping("/tableselection")	
 	public ModelAndView test(Model model) {
@@ -85,6 +86,10 @@ public class TableSelectionController {
 	private Table getTableById(int table_id) {
 		TableManagement tableManagement = new TableManagement();
 		return tableManagement.getTableById(table_id);
+	}
+	private User getUserById(int table_id) {
+		UserManagement userManagement = new UserManagement();
+		return userManagement.getUserById(table_id);
 	}
 
 
