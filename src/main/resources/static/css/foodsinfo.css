@@ -803,13 +803,15 @@ body div {
 }
 
 #DeletePopUp .popup-container{
+    position: relative;
     width: 400px;
-    height: 250px;
+    height: 300px;
     background-color: #FFFFFF;
-
-    margin: auto;
-    margin-top: 100px;
+   
     border-radius: 7px;
+
+    left: calc(50% - 400px/2);
+    top: calc(50% - 300px/2);
 }
 #DeletePopUp .popup-container h1{
     text-align: center;
@@ -831,6 +833,7 @@ body div {
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     
 }
 #DeletePopUp .btn{

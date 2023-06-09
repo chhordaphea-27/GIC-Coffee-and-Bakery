@@ -24,9 +24,8 @@ public class ProductSelectionController {
 	UserManagement userManagement = new UserManagement();
 	TableManagement tableManagement = new TableManagement();
 
-
-	private Table tableSelected = tableManagement.getTableById(15);
-	private User user = userManagement.getUserById(1);
+	private Table tableSelected;
+	private User user;
 	private OrderAndItemList orderAndItemList = null;
 
 	private Category selectedCate;

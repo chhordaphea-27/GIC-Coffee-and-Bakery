@@ -35,6 +35,8 @@ public class TableSelectionController {
 	@GetMapping("/tableselection/displayTableNumAndStatus")	
 	public ModelAndView handleDataFromView(@RequestParam ("table_id") int table_id, Model model) {
 
+		model.addAttribute("user", user);
+
 		model.addAttribute("allTable", showAllTable());
 		model.addAttribute("tableAttr", getTableById(table_id));
 		return new ModelAndView("table_selection");
@@ -58,12 +60,12 @@ public class TableSelectionController {
 
 				return new ModelAndView("redirect:/product_selection");
 			} else {
-
 				model.addAttribute("tableAttr", getTableById(tableID));
 			}
 		} else {
 			model.addAttribute("tableAttr", getEmptyTable());
 		}
+				model.addAttribute("user", user);
 
 		model.addAttribute("allTable", showAllTable());
 		return new ModelAndView("table_selection");
